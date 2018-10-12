@@ -52,6 +52,7 @@ class CineController extends SecuredController
   }
 
   function BorrarCine($param){
+    echo $param;
     $this->model->BorrarCine($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

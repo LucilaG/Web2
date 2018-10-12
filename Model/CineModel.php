@@ -26,7 +26,7 @@ class CineModel
 
   function GetCine($id){
 
-      $sentencia = $this->db->prepare( "select * from cine where id=?");
+      $sentencia = $this->db->prepare( "select * from cine where id_cine=?");
       $sentencia->execute(array($id));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
@@ -37,14 +37,15 @@ class CineModel
     $sentencia->execute(array($nombre,$capacidad,$sala));
   }
 
-  function BorrarCine($idCine){
 
-    $sentencia = $this->db->prepare( "delete from cine where id=?");
+  function BorrarCine($idCine){
+    echo $idCine;
+    $sentencia = $this->db->prepare( "delete from cine where id_cine=?");
     $sentencia->execute(array($idCine));
   }
 
   function GuardarEditarCine($nombre,$capacidad,$sala,$id){
-    $sentencia = $this->db->prepare( "update cine set nombre = ?, capacidad = ?, sala = ? where id=?");
+    $sentencia = $this->db->prepare( "update cine set nombre = ?, capacidad = ?, sala = ? where id_cine=?");
     $sentencia->execute(array($nombre,$capacidad,$sala,$id));
   }
 }

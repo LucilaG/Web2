@@ -4,13 +4,6 @@
     <h1>{$Titulo}</h1>
 
     <div class="container">
-      <ul class="list-group">
-            {foreach from=$Cines item=cine}
-                <li class="list-group-item">{$cine['nombre']} ----- {$cine['capacidad']}<a href="borrar/{$cine['id']}">BORRAR</a> | <a href="editar/{$cine['id']}">EDITAR</a></li>
-            {/foreach}
-      </ul>
-    </div>
-    <div class="container">
       <div class="row">
         <table class="table table-hover col-10 offset-1">
           <thead>
@@ -28,8 +21,8 @@
                 <td>{$cine['nombre']}</td>
                 <td>{$cine['capacidad']}</td>
                 <td>{$cine['sala']}</td>
-                <td><a href="borrar/{$cine['id']}">BORRAR</a></td>
-                <td><a href="editar/{$cine['id']}">EDITAR</a></td>
+                <td><a href="borrar/{$cine['id_cine']}">BORRAR</a></td>
+                <td><a href="editar/{$cine['id_cine']}">EDITAR</a></td>
               </tr>
             {/foreach}            
           </tbody>
@@ -41,12 +34,16 @@
       <h2>Agregar Cine</h2>
       <form method="post" action="agregar">
         <div class="form-group">
-          <label for="tituloForm">Cine</label>
-          <input type="text" class="form-control" id="tituloForm" name="tituloForm">
+          <label for="cineForm">Cine</label>
+          <input type="text" class="form-control" id="cineForm" name="cineForm">
         </div>
         <div class="form-group">
-          <label for="descripcionForm">Capacidad</label>
-          <input type="text" class="form-control" id="descripcionForm" name="descripcionForm">
+          <label for="capacidadForm">Capacidad</label>
+          <input type="text" class="form-control" id="capacidadForm" name="descripcionForm">
+        </div>
+        <div class="form-group">
+          <label for="descripcionForm">Sala</label>
+          <input type="text" class="form-control" id="salaForm" name="descripcionForm">
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
