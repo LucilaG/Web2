@@ -15,10 +15,6 @@
           <label for="descripcionForm">Descripcion</label>
           <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$Cine["descripcion"]}">
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="completadaForm" name="completadaForm">
-          <label class="form-check-label" for="completadaForm">Completada?</label>
-        </div>
         <button type="submit" class="btn btn-primary">Editar Tarea</button>
       </form>
     </div>

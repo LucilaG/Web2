@@ -2,7 +2,7 @@
 /**
  *
  */
-class CinesModel
+class CineModel
 {
   private $db;
 
@@ -13,7 +13,7 @@ class CinesModel
 
   function Connect(){
     return new PDO('mysql:host=localhost;'
-    .'dbname=cine;charset=utf8'
+    .'dbname=cines;charset=utf8'
     , 'root', '');
   }
 
@@ -41,12 +41,6 @@ class CinesModel
 
     $sentencia = $this->db->prepare( "delete from cine where id=?");
     $sentencia->execute(array($idCine));
-  }
-
-  function CompletarCine($id_cine){
-
-    $sentencia = $this->db->prepare( "update cine set completada=1 where id=?");
-    $sentencia->execute(array($id_cine));
   }
 
   function GuardarEditarCine($nombre,$capacidad,$sala,$id){

@@ -14,8 +14,8 @@ class CineController extends SecuredController
   {
     parent::__construct();
 
-    $this->view = new CinesView();
-    $this->model = new CinesModel();
+    $this->view = new CineView();
+    $this->model = new CineModel();
     $this->Titulo = "Lista de Tareas Controlador 1";
   }
 
@@ -54,12 +54,6 @@ class CineController extends SecuredController
   function BorrarCine($param){
     $this->model->BorrarCine($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-
-  function CompletarCine($param){
-    $this->model->CompletarCine($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
   }
 }
 

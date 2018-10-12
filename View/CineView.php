@@ -10,10 +10,10 @@ class CineView
     $this->Smarty = new Smarty();
   }
 
-  function Mostrar($Titulo, $cine){
+  function Mostrar($Titulo, $Cines){
     $smarty= new Smarty();
     $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
-    $this->Smarty->assign('Cine',$cine);
+    $this->Smarty->assign('Cines',$Cines);
     $this->Smarty->display('templates/home.tpl');
   }
 

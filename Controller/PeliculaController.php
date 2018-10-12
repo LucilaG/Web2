@@ -56,11 +56,7 @@ class PeliculaController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function CompletarPelicula($param){
-    $this->model->CompletarPelicula($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-  }
+  
 }
 
  ?>

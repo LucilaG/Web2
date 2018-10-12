@@ -13,7 +13,7 @@ class PeliculasModel
 
   function Connect(){
     return new PDO('mysql:host=localhost;'
-    .'dbname=pelicula;charset=utf8'
+    .'dbname=cines;charset=utf8'
     , 'root', '');
   }
 
@@ -24,7 +24,7 @@ class PeliculasModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function GetPeliculas($id){
+  function GetPelicula($id){
 
       $sentencia = $this->db->prepare( "select * from pelicula where id=?");
       $sentencia->execute(array($id));
@@ -41,12 +41,6 @@ class PeliculasModel
 
     $sentencia = $this->db->prepare( "delete from pelicula where id=?");
     $sentencia->execute(array($idPelicula));
-  }
-
-  function CompletarPeliculas($id_pelicula){
-
-    $sentencia = $this->db->prepare( "update pelicula set completada=1 where id=?");
-    $sentencia->execute(array($id_pelicula));
   }
 
   function GuardarEditarPeliculas($nombre,$director,$rate,$horarios,$id){

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-1, created on 2018-10-10 21:17:37
-  from 'C:\xampp\htdocs\web\templates\login.tpl' */
+/* Smarty version 3.1.34-dev-1, created on 2018-10-12 13:53:39
+  from 'C:\xampp\htdocs\proyectos\TPE_WEB2\Web2\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-1',
-  'unifunc' => 'content_5bbe5051222d67_49048418',
+  'unifunc' => 'content_5bc08b430f0b03_75821084',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4cc85ced0192540a21cd72ce473209412fd224c6' => 
+    'b21bcf657e067d822a681639498e3aeaf491b9f1' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web\\templates\\login.tpl',
-      1 => 1539199051,
+      0 => 'C:\\xampp\\htdocs\\proyectos\\TPE_WEB2\\Web2\\templates\\login.tpl',
+      1 => 1539202397,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bbe5051222d67_49048418 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc08b430f0b03_75821084 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
   
@@ -34,7 +34,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
           <form method="post" action="verificarLogin">
             <div class="form-group">
               <label for="exampleInputEmail1">Usuario</label>
-              <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Enter email">
+              <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Ingrese Usuario">
               </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
