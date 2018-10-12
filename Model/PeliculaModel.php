@@ -13,7 +13,7 @@ class PeliculasModel
 
   function Connect(){
     return new PDO('mysql:host=localhost;'
-    .'dbname=cines;charset=utf8'
+    .'dbname=db_cine;charset=utf8'
     , 'root', '');
   }
 

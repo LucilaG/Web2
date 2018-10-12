@@ -1,3 +1,4 @@
+{include file="head.tpl"}
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>

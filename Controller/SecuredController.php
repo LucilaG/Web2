@@ -14,6 +14,7 @@ class SecuredController
         header(LOGIN);
     }
   }
+  
 
   function logout(){
     session_start();

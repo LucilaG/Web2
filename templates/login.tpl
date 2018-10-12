@@ -1,3 +1,4 @@
+{include file="head.tpl"}
 {include file="header.tpl"}
   
     <div class="container">

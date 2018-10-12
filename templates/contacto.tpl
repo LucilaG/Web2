@@ -1,3 +1,6 @@
+{include file="head.tpl"}
+{include file="header.tpl"}
+
 <div class="container-fluid">
     <div class="col-12 rounded">
         <h2>Nosotros...</h2>
@@ -77,3 +80,5 @@
     </div>
 </div>
 </div>
+
+{include file="footer.tpl"}

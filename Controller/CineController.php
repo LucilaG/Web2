@@ -16,7 +16,7 @@ class CineController extends SecuredController
 
     $this->view = new CineView();
     $this->model = new CineModel();
-    $this->Titulo = "Lista de Tareas Controlador 1";
+    $this->Titulo = "Lista de Cine";
   }
 
   function Home(){
@@ -28,7 +28,7 @@ class CineController extends SecuredController
       $id_cine = $param[0];
 
       $Cine = $this->model->GetCine($id_cine);
-      $this->view->MostrarEditarCine("Editar Tarea", $Cine);
+      $this->view->MostrarEditarCine("Editar Cine", $Cine);
   }
 
   function InsertCine(){
