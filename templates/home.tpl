@@ -34,16 +34,16 @@
       <h2>Agregar Cine</h2>
       <form method="post" action="agregar">
         <div class="form-group">
-          <label for="cineForm">Cine</label>
-          <input type="text" class="form-control" id="cineForm" name="cineForm">
+          <label for="nombreForm">Cine</label>
+          <input type="text" class="form-control" id="nombreForm" name="nombreForm">
         </div>
         <div class="form-group">
           <label for="capacidadForm">Capacidad</label>
-          <input type="text" class="form-control" id="capacidadForm" name="descripcionForm">
+          <input type="text" class="form-control" id="capacidadForm" name="capacidadForm">
         </div>
         <div class="form-group">
-          <label for="descripcionForm">Sala</label>
-          <input type="text" class="form-control" id="salaForm" name="descripcionForm">
+          <label for="salaForm">Sala</label>
+          <input type="text" class="form-control" id="salaForm" name="salaForm">
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>

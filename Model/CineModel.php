@@ -39,7 +39,6 @@ class CineModel
 
 
   function BorrarCine($idCine){
-    echo $idCine;
     $sentencia = $this->db->prepare( "delete from cine where id_cine=?");
     $sentencia->execute(array($idCine));
   }
