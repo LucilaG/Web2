@@ -35,8 +35,6 @@ class LoginController
       $dbUser = $this->model->getUser($user);
 
       if(isset($dbUser)){
-        echo $pass;
-        echo $dbUser[0]["pass"];
           if (password_verify($pass, $dbUser[0]["pass"])){
               session_start();
               $_SESSION["User"] = $user;
