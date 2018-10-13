@@ -24,11 +24,11 @@ class CineController extends SecuredController
       $this->view->Mostrar($this->Titulo, $Cines);
   }
 
-  function EditarCines($param){
+  function EditarCine($param){
       $id_cine = $param[0];
 
       $Cine = $this->model->GetCine($id_cine);
-      $this->view->MostrarEditarCine("Editar Cine", $Cine);
+      $this->view->MostrarEditarCine("Editar Cine",$Cine);
   }
 
   function InsertCine(){
@@ -54,7 +54,6 @@ class CineController extends SecuredController
   }
 
   function BorrarCine($param){
-    echo $param;
     $this->model->BorrarCine($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

@@ -2,21 +2,23 @@
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>
-
-
-    <div class="container">
-      <h2>Formulario</h2>
-      <form method="post" action="{$home}/guardarEditar">
-        <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$Cine["id"]}">
+ <div class="container">
+      <form method="post" action="agregar">
+       <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$Cine["id_cine"]}">
         <div class="form-group">
-          <label for="tituloForm">Titulo</label>
-          <input type="text" class="form-control" id="tituloForm" name="tituloForm" value="{$Cine["titulo"]}">
+          <label for="nombreForm">Cine</label>
+          <input type="text" class="form-control" id="nombreForm" name="nombreForm" value="{$Cine["nombre"]}">
         </div>
         <div class="form-group">
-          <label for="descripcionForm">Descripcion</label>
-          <input type="text" class="form-control" id="descripcionForm" name="descripcionForm" value="{$Cine["descripcion"]}">
+          <label for="capacidadForm">Capacidad</label>
+          <input type="text" class="form-control" id="capacidadForm" name="capacidadForm" value="{$Cine["capacidad"]}">
         </div>
-        <button type="submit" class="btn btn-primary">Editar Tarea</button>
+        <div class="form-group">
+          <label for="salaForm">Sala</label>
+          <input type="text" class="form-control" id="salaForm" name="salaForm" value="{$Cine["sala"]}">
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
     </div>
+
 {include file="footer.tpl"}
