@@ -19,32 +19,32 @@ class CineModel
 
   function GetCines(){
 
-      $sentencia = $this->db->prepare( "select * from cine");
+      $sentencia = $this->db->prepare( "SELECT * FROM cine");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function GetCine($id){
 
-      $sentencia = $this->db->prepare( "select * from cine where id_cine=?");
+      $sentencia = $this->db->prepare( "SELECT * FROM cine WHERE id_cine=?");
       $sentencia->execute(array($id));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
   function InsertarCine($nombre,$capacidad,$sala){
-
-    $sentencia = $this->db->prepare("INSERT INTO cine( nombre, capacidad, sala) VALUES(?,?,?)");
-    $sentencia->execute(array($nombre,$capacidad,$sala));
+    
+    $sentencia = $this->db->prepare("INSERT INTO `cine` (`id_cine`, `nombre`, `capacidad`, `sala`) VALUES (NULL, ?, ?, ?);");
+    $sentencia->execute(array(NULL,$nombre,$capacidad,$sala));
   }
 
-
+  
   function BorrarCine($idCine){
-    $sentencia = $this->db->prepare( "delete from cine where id_cine=?");
+    $sentencia = $this->db->prepare( "DELETE FROM cine WHERE id_cine=?");
     $sentencia->execute(array($idCine));
   }
 
   function GuardarEditarCine($nombre,$capacidad,$sala,$id){
-    $sentencia = $this->db->prepare( "update cine set nombre = ?, capacidad = ?, sala = ? where id_cine=?");
+    $sentencia = $this->db->prepare( "UPDATE `cine` SET `id_cine`=?,`nombre`=?,`capacidad`=?,`sala`=? WHERE 'id_cine'=?");
     $sentencia->execute(array($nombre,$capacidad,$sala,$id));
   }
 }

@@ -30,12 +30,11 @@ class CineController extends SecuredController
       $Cine = $this->model->GetCine($id_cine);
       $this->view->MostrarEditarCine("Editar Cine",$Cine);
   }
-
+  
   function InsertCine(){
-    $nombre = $_POST["nombreForm"];
-    $capacidad = $_POST["capacidadForm"];
-    $sala = $_POST["salaForm"];
-
+    $nombre = $_POST["nombre"];
+    $capacidad = $_POST["capacidad"];
+    $sala = $_POST["sala"];
     
     $this->model->InsertarCine($nombre,$capacidad,$sala);
 
@@ -43,10 +42,10 @@ class CineController extends SecuredController
   }
 
   function GuardarEditarCine(){
-    $id_cine = $_POST["idForm"];
-    $nombre = $_POST["nombreForm"];
-    $capacidad = $_POST["capacidadForm"];
-    $sala = $_POST["salaForm"];
+    $id_cine = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $capacidad = $_POST["capacidad"];
+    $sala = $_POST["sala"];
 
     $this->model->GuardarEditarCine($nombre,$capacidad,$sala,$id_cine);
 

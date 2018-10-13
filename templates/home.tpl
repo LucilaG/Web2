@@ -32,18 +32,18 @@
 
     <div class="container">
       <h2>Agregar Cine</h2>
-      <form method="post" action="agregar">
+      <form method="post" action="{$home}/agregar">
         <div class="form-group">
-          <label for="nombreForm">Cine</label>
-          <input type="text" class="form-control" id="nombreForm" name="nombreForm">
+          <label for="nombre">Cine</label>
+          <input type="text" class="form-control" id="nombre" name="nombre">
         </div>
         <div class="form-group">
-          <label for="capacidadForm">Capacidad</label>
-          <input type="text" class="form-control" id="capacidadForm" name="capacidadForm">
+          <label for="capacidad">Capacidad</label>
+          <input type="text" class="form-control" id="capacidad" name="capacidad">
         </div>
         <div class="form-group">
-          <label for="salaForm">Sala</label>
-          <input type="text" class="form-control" id="salaForm" name="salaForm">
+          <label for="sala">Sala</label>
+          <input type="text" class="form-control" id="sala" name="sala">
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
