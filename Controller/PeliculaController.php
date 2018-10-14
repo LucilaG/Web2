@@ -34,12 +34,16 @@ class PeliculaController extends SecuredController
       $id_pelicula = $param[0];
 
       $Pelicula = $this->model->GetPelicula($id_pelicula);
-      $this->view->MostrarEditarPeliculas("Editar Tarea", $Pelicula);
+      $this->view->MostrarEditarPeliculas("Editar Pelicula", $Pelicula);
   }
 
   function InsertPelicula(){
     $titulo = $_POST["tituloForm"];
-    $descripcion = $_POST["descripcionForm"];
+   
+    $nombre = $_POST["nombre"];
+    $director = $_POST["director"];
+    $rate = $_POST["rate"];
+    $horarios = $_POST["horarios"];
 
     
     $this->model->InsertarPelicula($nombre,$director,$rate,$horarios);
@@ -48,11 +52,13 @@ class PeliculaController extends SecuredController
   }
 
   function GuardarEditarPelicula(){
-    $id_pelicula = $_POST["idForm"];
-    $titulo = $_POST["tituloForm"];
-    $descripcion = $_POST["descripcionForm"];
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $director = $_POST["director"];
+    $rate = $_POST["rate"];
+    $horarios = $_POST["horarios"];
 
-    $this->model->GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_pelicula);
+    $this->model->GuardarEditarPelicula($id, $nombre,$director,$rate,$horarios);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

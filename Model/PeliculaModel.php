@@ -44,9 +44,9 @@ class PeliculaModel
     $sentencia->execute(array($idPelicula));
   }
 
-  function GuardarEditarPeliculas($nombre,$director,$rate,$horarios,$id){
+  function GuardarEditarPeliculas($id, $nombre,$director,$rate,$horarios){
     $sentencia = $this->db->prepare( "update pelicula set nombre = ?, director = ?, rate = ?, horarios = ?, where id=?");
-    $sentencia->execute(array($nombre,$director,$rate,$horarios,$id));
+    $sentencia->execute(array($nombre,$director,$rate,$horarios));
   }
 }
 
