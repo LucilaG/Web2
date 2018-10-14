@@ -17,7 +17,7 @@
           <label for="sala">sala</label>
           <input type="text" class="form-control" id="sala" name="sala" value="{$Cine["sala"]}">
         </div>
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <button type="submit" class="btn btn-primary">Modificar</button>
       </form>
     </div>
 

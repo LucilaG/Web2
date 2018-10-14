@@ -38,7 +38,7 @@ class CineController extends SecuredController
     
     $this->model->InsertarCine($nombre,$capacidad,$sala);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 
   function GuardarEditarCine(){
@@ -49,12 +49,12 @@ class CineController extends SecuredController
 
     $this->model->GuardarEditarCine($nombre,$capacidad,$sala,$id_cine);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 
   function BorrarCine($param){
     $this->model->BorrarCine($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 }
 

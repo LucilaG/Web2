@@ -31,10 +31,9 @@ class CineModel
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
 
-  function InsertarCine($nombre,$capacidad,$sala){
-    
-    $sentencia = $this->db->prepare("INSERT INTO `cine` (`id_cine`, `nombre`, `capacidad`, `sala`) VALUES (NULL, ?, ?, ?);");
-    $sentencia->execute(array(NULL,$nombre,$capacidad,$sala));
+  function InsertarCine($nombre,$capacidad,$sala){                                  
+    $sentencia = $this->db->prepare("INSERT INTO `cine` (`nombre`, `capacidad`, `sala`) VALUES (?, ?, ?);");
+    $sentencia->execute(array($nombre,$capacidad,$sala));
   }
 
   
@@ -44,7 +43,7 @@ class CineModel
   }
 
   function GuardarEditarCine($nombre,$capacidad,$sala,$id){
-    $sentencia = $this->db->prepare( "UPDATE `cine` SET `id_cine`=?,`nombre`=?,`capacidad`=?,`sala`=? WHERE 'id_cine'=?");
+    $sentencia = $this->db->prepare( "UPDATE `cine` SET `nombre`=?,`capacidad`=?,`sala`=? WHERE 'id_cine'=?");
     $sentencia->execute(array($nombre,$capacidad,$sala,$id));
   }
 }

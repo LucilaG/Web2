@@ -32,7 +32,7 @@
 
     <div class="container">
       <h2>Agregar Cine</h2>
-      <form method="post" action="{$home}/agregar">
+      <form method="post" action="agregar">
         <div class="form-group">
           <label for="nombre">Cine</label>
           <input type="text" class="form-control" id="nombre" name="nombre">
