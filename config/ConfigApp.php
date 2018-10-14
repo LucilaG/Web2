@@ -15,6 +15,8 @@ class ConfigApp
       'borrar'=> 'CineController#BorrarCine',
       'editar'=> 'CineController#EditarCine',
       'agregar'=> 'CineController#InsertCine',
+      'peliculasPorCine' => 'PeliculaController#MostrarPeliculasPorCine',
+      'peliculas' => 'PeliculaController#MostrarPeliculas',
       'guardarEditar'=> 'CineController#GuardarEditarCine',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',
