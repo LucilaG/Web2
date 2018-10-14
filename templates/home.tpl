@@ -19,14 +19,14 @@
           <tbody>
             {foreach from=$Cines item=cine}
               <tr>
-                <td><a href="peliculasPorCine/{$cine['id_cine']}">{$cine['nombre']}</td>
+                <td><a href="peliculasPorCine/{$cine['id_cine']}">{$cine['nombre']}</a></td>
                 <td>{$cine['capacidad']}</td>
                 <td>{$cine['sala']}</td>
                 <td>
                   <select name=pelicula>
                     {foreach from=$Peliculas item=pelicula}
                       {if $cine['id_cine'] == $pelicula['id_cine']}
-                          {html_options values={$pelicula['id_pelicula']} output={$pelicula['nombre']}}</a>
+                          {html_options values={$pelicula['id_pelicula']} output= <a href="">{$pelicula['nombre']}
                       {/if}
                     {/foreach}  
                   </select>
@@ -42,7 +42,7 @@
 
     <div class="container">
       <h2>Agregar Cine</h2>
-      <form method="post" action="{$home}/agregar">
+      <form method="post" action="agregar">
         <div class="form-group">
           <label for="nombre">Cine</label>
           <input type="text" class="form-control" id="nombre" name="nombre">

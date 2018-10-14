@@ -8,7 +8,7 @@
             en contacto para saber en todo momento lo mas nuevo de la indutria del entretenimiento.</p>
     </div>
     <div class="row">
-        <div class="col-md-4 bg-danger rounded pt-3 pb-3">
+        <div class="col-6 offset-3 bg-danger rounded pt-3 pb-3">
             <h3>Contacto</h3>
             <form>
                 <div class="form-group">
@@ -37,45 +37,7 @@
                     </select>
                 </div>
                 <button class="btn btn-primary  js-agregar-contacto">Agregar contacto</button>
-                <button class="btn btn-primary  js-agregar3-contactos">Agregar 3 contactos</button>
             </form>
-        </div>
-        <div class="col-md-8 bg-info rounded pt-3 pb-3">
-            <div class="row">
-                <div class="col-12">
-                    <h3>Filtrar datos</h3>
-                    <form>
-                        <div class="form-group">
-                            <label class="form-control" for="Control">¿Suscripto?</label>
-                            <select class="form-control js-opciones-filtro" id="Control">
-                                <option></option>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="InputKeyword">Keyword</label>
-                            <input type="text" class="form-control js-keyword-filtro" id="InputKeyword" placeholder="Ingresá keyword">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-12">
-                <h3>Registro</h3>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col">Suscripto</th>
-                        </tr>
-                    </thead>
-                    <tbody class="js-container">
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>

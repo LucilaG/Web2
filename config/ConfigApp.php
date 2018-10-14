@@ -11,6 +11,7 @@ class ConfigApp
     public static $PARAMS = 'params';
     public static $ACTIONS = [
       ''=> 'CineController#Home',
+      'contacto' =>'ContactoView#Mostrar',
       'home'=> 'CineController#Home',
       'borrar'=> 'CineController#BorrarCine',
       'editar'=> 'CineController#EditarCine',
