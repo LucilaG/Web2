@@ -18,15 +18,19 @@
           </thead>
           <tbody>
             {foreach from=$Peliculas item=pelicula}
-              <tr>
-                <td>{$pelicula['nombre']}</td>
-                <td>{$pelicula['director']}</td>
-                <td>{$pelicula['rate']}</td>
-                <td>{$pelicula['horario']}</td>
-                <td><a href="borrar/{$pelicula['id_pelicula']}">BORRAR</a></td>
-                <td><a href="editar/{$pelicula['id_pelicula']}">EDITAR</a></td>
-              </tr>
-            {/foreach}            
+              {if $id_cine != null}
+                {if $id_cine == $pelicula['id_cine']}
+                  <tr>
+                    <td>{$pelicula['nombre']}</td>
+                    <td>{$pelicula['director']}</td>
+                    <td>{$pelicula['rate']}</td>
+                    <td>{$pelicula['horarios']}</td>
+                    <td><a href="borrar/{$pelicula['id_pelicula']}">BORRAR</a></td>
+                    <td><a href="editar/{$pelicula['id_pelicula']}">EDITAR</a></td>
+                  </tr>
+                {/if}  
+              {/if}  
+            {/foreach}         
           </tbody>
         </table>
       </div>

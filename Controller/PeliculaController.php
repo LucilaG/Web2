@@ -25,9 +25,9 @@ class PeliculaController extends SecuredController
   }
 
   function MostrarPeliculasPorCine($param){
-      $id_pelicula = $param[0];
-      $Peliculas = $this->model->GetPeliculasPorCine($id_pelicula);
-      $this->view->Mostrar($this->Titulo, $Peliculas);
+    $id_cine = $param[0];
+    $Peliculas = $this->model->GetPeliculas();
+    $this->view->MostrarID($this->Titulo, $Peliculas, $id_cine);
   }
 
   function EditarPeliculas($param){

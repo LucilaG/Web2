@@ -31,11 +31,6 @@ class PeliculaModel
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
   
-  function GetPeliculasPorCine($id){
-      $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE id_cine=?");
-      $sentencia->execute(array($id));
-      return $sentencia->fetch(PDO::FETCH_ASSOC);
-}
 
   function InsertarPeliculas($nombre,$director,$rate,$horarios){
 
