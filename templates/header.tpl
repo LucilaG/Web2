@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav listaanclas">
                 <li class="nav-item">
-                    <a class="nav-link enlaceacontenido" href="">Inicio</a>
+                    <a class="nav-link enlaceacontenido" href="{$home}">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link enlaceacontenido" href="cines">Cines</a>

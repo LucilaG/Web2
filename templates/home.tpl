@@ -49,11 +49,11 @@
         </div>
         <div class="form-group">
           <label for="capacidad">Capacidad</label>
-          <input type="text" class="form-control" id="capacidad" name="capacidad">
+          <input type="number" class="form-control" id="capacidad" name="capacidad">
         </div>
         <div class="form-group">
           <label for="sala">Sala</label>
-          <input type="text" class="form-control" id="sala" name="sala">
+          <input type="number" class="form-control" id="sala" name="sala">
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>

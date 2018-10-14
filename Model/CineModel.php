@@ -43,7 +43,7 @@ class CineModel
   }
 
   function GuardarEditarCine($nombre,$capacidad,$sala,$id){
-    $sentencia = $this->db->prepare( "UPDATE `cine` SET `nombre`=?,`capacidad`=?,`sala`=? WHERE 'id_cine'=?");
+    $sentencia = $this->db->prepare( "UPDATE `cine` SET `nombre`=?,`capacidad`=?,`sala`=? WHERE id_cine=?");
     $sentencia->execute(array($nombre,$capacidad,$sala,$id));
   }
 }
