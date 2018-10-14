@@ -22,13 +22,15 @@
                 <td><a href="peliculasPorCine/{$cine['id_cine']}">{$cine['nombre']}</td>
                 <td>{$cine['capacidad']}</td>
                 <td>{$cine['sala']}</td>
-                    <td>
-                    <select name=pelicula>
+                <td>
+                  <select name=pelicula>
                     {foreach from=$Peliculas item=pelicula}
-                       {html_options values={$pelicula['id_pelicula']} output={$pelicula['nombre']}}</a>
+                      {if $cine['id_cine'] == $pelicula['id_cine']}
+                          {html_options values={$pelicula['id_pelicula']} output={$pelicula['nombre']}}</a>
+                      {/if}
                     {/foreach}  
-                    </select>
-                    </td>
+                  </select>
+                </td>
                 <td><a href="borrar/{$cine['id_cine']}">BORRAR</a></td>
                 <td><a href="editar/{$cine['id_cine']}">EDITAR</a></td>
               </tr>
