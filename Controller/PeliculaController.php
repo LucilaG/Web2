@@ -14,13 +14,19 @@ class PeliculaController extends SecuredController
   {
     parent::__construct();
 
-    $this->view = new PeliculasView();
-    $this->model = new PeliculasModel();
-    $this->Titulo = "Lista de Tareas Controlador 1";
+    $this->view = new PeliculaView();
+    $this->model = new PeliculaModel();
+    $this->Titulo = "Lista de Peliculas";
   }
 
-  function Home(){
-      $Peliculas = $this->model->GetPeliculas();
+  function MostrarPeliculas(){
+    $Peliculas = $this->model->GetPeliculas();
+    $this->view->Mostrar($this->Titulo, $Peliculas);
+  }
+
+  function MostrarPeliculasPorCine($param){
+      $id_pelicula = $param[0];
+      $Peliculas = $this->model->GetPeliculasPorCine($id_pelicula);
       $this->view->Mostrar($this->Titulo, $Peliculas);
   }
 

@@ -2,6 +2,7 @@
 
 require_once  "./View/CineView.php";
 require_once  "./Model/CineModel.php";
+require_once  "./Model/PeliculaModel.php";
 require_once  "SecuredController.php";
 
 class CineController extends SecuredController
@@ -16,12 +17,14 @@ class CineController extends SecuredController
 
     $this->view = new CineView();
     $this->model = new CineModel();
+    $this->modelPelicula = new PeliculaModel();
     $this->Titulo = "Lista de Cine";
   }
 
   function Home(){
       $Cines = $this->model->GetCines();
-      $this->view->Mostrar($this->Titulo, $Cines);
+      $Pelicula = $this->modelPelicula->GetPeliculas();
+      $this->view->Mostrar($this->Titulo, $Cines, $Pelicula);
   }
 
   function EditarCine($param){

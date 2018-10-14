@@ -2,7 +2,7 @@
 /**
  *
  */
-class PeliculasModel
+class PeliculaModel
 {
   private $db;
 
@@ -19,7 +19,7 @@ class PeliculasModel
 
   function GetPeliculas(){
 
-      $sentencia = $this->db->prepare( "select * from pelicula");
+      $sentencia = $this->db->prepare( "SELECT * FROM pelicula");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -30,6 +30,12 @@ class PeliculasModel
       $sentencia->execute(array($id));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
+  
+  function GetPeliculasPorCine($id){
+      $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE id_cine=?");
+      $sentencia->execute(array($id));
+      return $sentencia->fetch(PDO::FETCH_ASSOC);
+}
 
   function InsertarPeliculas($nombre,$director,$rate,$horarios){
 
