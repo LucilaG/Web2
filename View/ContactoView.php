@@ -9,8 +9,10 @@ class ContactoView
     $this->Smarty = new Smarty();
   }
 
-  function Mostrar(){
+  function Mostrar($User=''){
     $this->Smarty->assign('Titulo',"Contacto");
+    $this->Smarty->assign('User',$User);
+    
     $this->Smarty->display('templates/contacto.tpl');
   }
 

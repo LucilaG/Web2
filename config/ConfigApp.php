@@ -10,9 +10,9 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      ''=> 'HomeView#Mostrar',
-      'home'=> 'HomeView#Mostrar',
-      'contacto' =>'ContactoView#Mostrar',
+      ''=> 'MostrarController#MostrarHome',
+      'home'=> 'MostrarController#MostrarHome',
+      'contacto' =>'MostrarController#MostrarContacto',
       'cines'=> 'CineController#Cine',
       'borrar'=> 'CineController#BorrarCine',
       'borrarPelicula'=> 'PeliculaController#BorrarPelicula',

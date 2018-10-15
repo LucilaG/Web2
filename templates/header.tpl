@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav listaanclas">
                 <li class="nav-item">
-                    <a class="nav-link enlaceacontenido" href="{$home}">Inicio</a>
+                    <a class="nav-link enlaceacontenido" href="home">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link enlaceacontenido" href="cines">Cines</a>
@@ -15,9 +15,15 @@
                 <li class="nav-item">
                     <a class="nav-link enlaceacontenido" href="contacto">Contacto</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link enlaceacontenido" href="login">Login</a>
-                </li>
+                {if $User != null}
+                    <li class="nav-item">
+                        <a class="nav-link enlaceacontenido" href="logout">Logout</a>
+                    </li>
+                {else}
+                    <li class="nav-item">
+                        <a class="nav-link enlaceacontenido" href="login">Login</a>
+                    </li>
+                {/if}
             </ul>
         </div>
 </nav>

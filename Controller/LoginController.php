@@ -18,8 +18,12 @@ class LoginController
   }
 
   function login(){
-
-    $this->view->mostrarLogin();
+    if(isset($_SESSION["User"])){        
+      $User = $_SESSION["User"];
+      $this->view->mostrarLogin($User);
+    }else{
+      $this->view->mostrarLogin(null);
+    }
 
   }
 

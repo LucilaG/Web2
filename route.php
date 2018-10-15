@@ -3,6 +3,7 @@
 
 require_once "config/ConfigApp.php";
 
+require_once "Controller/MostrarController.php";
 require_once "Controller/CineController.php";
 require_once "Controller/UsuarioController.php";
 require_once "Controller/LoginController.php";

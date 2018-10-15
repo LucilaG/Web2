@@ -20,10 +20,10 @@ class CineView
 
   }
 
-  function MostrarEditarCine($Titulo,$Cine){
+  function MostrarEditarCine($Titulo,$Cine, $User){
     $this->Smarty->assign('Titulo',$Titulo); 
-    $this->Smarty->assign('Cine',$Cine); 
-    $this->Smarty->assign('cine',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    $this->Smarty->assign('Cine',$Cine);
+    $this->Smarty->assign('User', $User); 
 
     //$smarty->debugging = true;
     $this->Smarty->display('templates/MostrarEditarCine.tpl');
