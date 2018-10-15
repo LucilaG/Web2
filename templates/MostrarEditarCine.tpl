@@ -3,7 +3,7 @@
 
     <div class="container">
       <h2>Modificar Cines</h2>
-      <form method="post" action="{$home}/guardarEditar">
+      <form method="post" action="guardarEditar">
         <input type="hidden" class="form-control" id="id" name="id" value="{$Cine["id_cine"]}">
         <div class="form-group">
           <label for="nombre">Nombre</label>

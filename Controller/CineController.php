@@ -50,7 +50,7 @@ class CineController extends SecuredController
     
     $this->model->InsertarCine($nombre,$capacidad,$sala);
 
-    header(HOME);
+    header(CINES);
   }
 
   function GuardarEditarCine(){
@@ -61,12 +61,12 @@ class CineController extends SecuredController
 
     $this->model->GuardarEditarCine($nombre,$capacidad,$sala,$id_cine);
 
-    header(HOME);
+    header(CINES);
   }
 
   function BorrarCine($param){
     $this->model->BorrarCine($param[0]);
-    header(HOME);
+    header(CINES);
   }
 }
 
