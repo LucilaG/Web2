@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
           <label for="rate">Rate</label>
-          <input type="number" class="form-control" id="rate" name="rate" value="{$Pelicula["rate"]}">
+          <input type="number" class="form-control" id="rate" name="rate" value="{$Pelicula["rate"]}" step="0.01">
         </div>
         <div class="form-group">
           <label for="horario">Horario</label>
