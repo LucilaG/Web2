@@ -18,28 +18,43 @@ class PeliculaController extends SecuredController
     $this->model = new PeliculaModel();
     $this->Titulo = "Lista de Peliculas";
   }
-
+ 
   function MostrarPeliculas(){
     $Peliculas = $this->model->GetPeliculas();
-    $this->view->Mostrar($this->Titulo, $Peliculas);
+    if(isset($_SESSION["User"])){
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User");
+    }else{
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,null);
+    }
+  }
+  function MostrarPelicula($param){
+    $id_pelicula = $param[0];
+    $Peliculas = $this->model->GetPelicula($id_pelicula);
+    if(isset($_SESSION["User"])){
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User");
+    }else{
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,null);
+    }
   }
 
   function MostrarPeliculasPorCine($param){
     $id_cine = $param[0];
     $Peliculas = $this->model->GetPeliculas();
-    $this->view->MostrarID($this->Titulo, $Peliculas, $id_cine);
+    if(isset($_SESSION["User"])){
+      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,"User");
+    }else{
+      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,null);
+    }
   }
 
-  function EditarPeliculas($param){
+  function EditarPelicula($param){
       $id_pelicula = $param[0];
 
       $Pelicula = $this->model->GetPelicula($id_pelicula);
-      $this->view->MostrarEditarPeliculas("Editar Pelicula", $Pelicula);
+      $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula);
   }
 
   function InsertPelicula(){
-    $titulo = $_POST["tituloForm"];
-   
     $nombre = $_POST["nombre"];
     $director = $_POST["director"];
     $rate = $_POST["rate"];
@@ -48,7 +63,7 @@ class PeliculaController extends SecuredController
     
     $this->model->InsertarPelicula($nombre,$director,$rate,$horarios);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 
   function GuardarEditarPelicula(){
@@ -60,15 +75,13 @@ class PeliculaController extends SecuredController
 
     $this->model->GuardarEditarPelicula($id, $nombre,$director,$rate,$horarios);
 
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
 
   function BorrarPelicula($param){
     $this->model->BorrarPelicula($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header(HOME);
   }
-
-  
 }
 
  ?>

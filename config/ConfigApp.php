@@ -10,9 +10,10 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      ''=> 'CineController#Home',
+      ''=> 'HomeView#Mostrar',
+      'home'=> 'HomeView#Mostrar',
       'contacto' =>'ContactoView#Mostrar',
-      'home'=> 'CineController#Home',
+      'cines'=> 'CineController#Cine',
       'borrar'=> 'CineController#BorrarCine',
       'borrarPelicula'=> 'PeliculaController#BorrarPelicula',
       'editar'=> 'CineController#EditarCine',
@@ -21,6 +22,7 @@ class ConfigApp
       'agregar'=> 'CineController#InsertCine',
       'peliculasPorCine' => 'PeliculaController#MostrarPeliculasPorCine',
       'peliculas' => 'PeliculaController#MostrarPeliculas',
+      'pelicula' => 'PeliculaController#MostrarPelicula',
       'guardarEditar'=> 'CineController#GuardarEditarCine',
       'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
       'login'=> 'LoginController#login',

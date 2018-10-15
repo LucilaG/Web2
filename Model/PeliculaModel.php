@@ -19,35 +19,33 @@ class PeliculaModel
 
   function GetPeliculas(){
 
-      $sentencia = $this->db->prepare( "SELECT * FROM pelicula");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  }
+    $sentencia = $this->db->prepare( "SELECT * FROM pelicula");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+}
 
-  function GetPelicula($id){
+function GetPelicula($id){
 
-      $sentencia = $this->db->prepare( "select * from pelicula where id=?");
-      $sentencia->execute(array($id));
-      return $sentencia->fetch(PDO::FETCH_ASSOC);
-  }
+  $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE id_pelicula=?");
+  $sentencia->execute(array($id));
+  return $sentencia->fetch(PDO::FETCH_ASSOC);
+}
   
 
-  function InsertarPeliculas($nombre,$director,$rate,$horarios){
+function InsertarPelicula($nombre,$director,$rate,$horarios){                                  
+  $sentencia = $this->db->prepare("INSERT INTO `pelicula` (`nombre`, `director`, `rate`, 'horarios') VALUES (?, ?, ?, ?);");
+  $sentencia->execute(array($nombre,$director,$rate,$horarios));
+}
 
-    $sentencia = $this->db->prepare("INSERT INTO pelicula( nombre,director,rate,horarios) VALUES(?,?,?)");
-    $sentencia->execute(array($nombre,$director,$rate,$horarios));
-  }
+function BorrarPelicula($idPelicula){
+  $sentencia = $this->db->prepare( "DELETE FROM pelicula WHERE id_pelicula=?");
+  $sentencia->execute(array($idPelicula));
+}
 
-  function BorrarPeliculas($idPelicula){
-
-    $sentencia = $this->db->prepare( "delete from pelicula where id=?");
-    $sentencia->execute(array($idPelicula));
-  }
-
-  function GuardarEditarPeliculas($id, $nombre,$director,$rate,$horarios){
-    $sentencia = $this->db->prepare( "update pelicula set nombre = ?, director = ?, rate = ?, horarios = ?, where id=?");
-    $sentencia->execute(array($nombre,$director,$rate,$horarios));
-  }
+function GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id){
+  $sentencia = $this->db->prepare( "UPDATE `pelicula` SET `nombre`=?,`director`=?,`rate`=?,`horarios`=?  WHERE id_pelicula=?");
+  $sentencia->execute(array($nombre,$director,$rate,$horarios,$id));
+}
 }
 
 

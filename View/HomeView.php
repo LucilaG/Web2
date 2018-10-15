@@ -1,6 +1,6 @@
 <?php
 
-class ContactoView
+class HomeView
 {
   private $Smarty;
 
@@ -10,8 +10,8 @@ class ContactoView
   }
 
   function Mostrar(){
-    $this->Smarty->assign('Titulo',"Contacto");
-    $this->Smarty->display('templates/contacto.tpl');
+    $this->Smarty->assign('Titulo',"Inicio");
+    $this->Smarty->display('templates/home.tpl');
   }
 
 }

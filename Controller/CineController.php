@@ -14,17 +14,20 @@ class CineController extends SecuredController
   function __construct()
   {
     parent::__construct();
-
     $this->view = new CineView();
     $this->model = new CineModel();
     $this->modelPelicula = new PeliculaModel();
     $this->Titulo = "Lista de Cine";
   }
 
-  function Home(){
+  function Cine(){
       $Cines = $this->model->GetCines();
       $Pelicula = $this->modelPelicula->GetPeliculas();
-      $this->view->Mostrar($this->Titulo, $Cines, $Pelicula);
+      if(isset($_SESSION["User"])){
+        $this->view->Mostrar($this->Titulo, $Cines, $Pelicula, "User");
+      }else{
+        $this->view->Mostrar($this->Titulo, $Cines, $Pelicula, null);
+      }
   }
 
   function EditarCine($param){
