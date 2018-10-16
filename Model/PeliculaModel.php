@@ -32,9 +32,9 @@ function GetPelicula($id){
 }
   
 
-function InsertarPelicula($nombre,$director,$rate,$horarios){                                  
-  $sentencia = $this->db->prepare("INSERT INTO `pelicula` (`nombre`, `director`, `rate`, 'horarios') VALUES (?, ?, ?, ?);");
-  $sentencia->execute(array($nombre,$director,$rate,$horarios));
+function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine){                                  
+  $sentencia = $this->db->prepare("INSERT INTO pelicula (nombre, director, rate, horarios, id_cine) VALUES (?, ?, ?, ?,?);");
+  $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine));
 }
 
 function BorrarPelicula($idPelicula){
@@ -42,9 +42,9 @@ function BorrarPelicula($idPelicula){
   $sentencia->execute(array($idPelicula));
 }
 
-function GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id){
-  $sentencia = $this->db->prepare( "UPDATE `pelicula` SET `nombre`=?,`director`=?,`rate`=?,`horarios`=?  WHERE id_pelicula=?");
-  $sentencia->execute(array($nombre,$director,$rate,$horarios,$id));
+function GuardarEditarPelicula($id_pelicula,$nombre,$director,$rate,$horarios,$id_cine){
+  $sentencia = $this->db->prepare( "UPDATE pelicula SET nombre=?,director=?,rate=?,horarios=?, id_cine=?  WHERE id_pelicula=?");
+  $sentencia->execute(array($id_pelicula,$nombre,$director,$rate,$horarios,$id_cine));
 }
 }
 

@@ -59,6 +59,10 @@
             <label for="horarios">Horario</label>
             <input type="time" class="form-control" id="horarios" name="horarios">
           </div>
+          <div class="form-group">
+            <label for="id_cine">Cine</label>
+            <input type="number" class="form-control" id="id_cine" name="id_cine">
+          </div>
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>

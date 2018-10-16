@@ -28,7 +28,7 @@
                   <select name=pelicula>
                     {foreach from=$Peliculas item=pelicula}
                       {if $cine['id_cine'] == $pelicula['id_cine']}
-                          {html_options values={$pelicula['id_pelicula']} output={$pelicula['nombre']}}</a>
+                          {html_options values={$pelicula['id_pelicula']} output={$pelicula['nombre']}}
                       {/if}
                     {/foreach}  
                   </select>
