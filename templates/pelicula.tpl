@@ -61,7 +61,11 @@
           </div>
           <div class="form-group">
             <label for="id_cine">Cine</label>
-            <input type="number" class="form-control" id="id_cine" name="id_cine">
+            <select class="form-control" id="id_cine" name="id_cine">
+              {foreach from=$Cines item=cine}
+                {html_options values={$cine['id_cine']} output={$cine['nombre']}}
+              {/foreach}
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>

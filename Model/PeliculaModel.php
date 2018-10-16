@@ -42,9 +42,9 @@ function BorrarPelicula($idPelicula){
   $sentencia->execute(array($idPelicula));
 }
 
-function GuardarEditarPelicula($id_pelicula,$nombre,$director,$rate,$horarios,$id_cine){
-  $sentencia = $this->db->prepare( "UPDATE pelicula SET nombre=?,director=?,rate=?,horarios=?, id_cine=?  WHERE id_pelicula=?");
-  $sentencia->execute(array($id_pelicula,$nombre,$director,$rate,$horarios,$id_cine));
+function GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_cine,$id_pelicula){
+  $sentencia = $this->db->prepare( "UPDATE pelicula SET nombre = ?, director = ?, rate = ?, horarios = ?, id_cine = ? WHERE id_pelicula = ?");
+  $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine,$id_pelicula));
 }
 }
 

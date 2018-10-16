@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
           <label for="horario">Horario</label>
-          <input type="time" class="form-control" id="horario" name="horario" value="{$Pelicula["horario"]}">
+          <input type="time" class="form-control" id="horarios" name="horario" value="{$Pelicula["horario"]}">
         </div>
          <input type="hidden" class="form-control" id="id_cine" name="id_cine" value="{$Pelicula["id_cine"]}">
         <button type="submit" class="btn btn-primary">Modificar</button>

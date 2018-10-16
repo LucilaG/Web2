@@ -48,10 +48,15 @@ class PeliculaController extends SecuredController
   }
 
   function EditarPelicula($param){
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
       $id_pelicula = $param[0];
 
       $Pelicula = $this->model->GetPelicula($id_pelicula);
       $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, "User");
+    }else{
+      header(LOGIN);
+    }
   }
 
   function InsertPelicula(){
@@ -64,7 +69,7 @@ class PeliculaController extends SecuredController
 
     $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine);
 
-    header(PELICULAS);
+    header(PELICULASCINE.$id_cine);
   }
 
   function GuardarEditarPelicula(){
@@ -75,14 +80,14 @@ class PeliculaController extends SecuredController
     $horarios = $_POST["horarios"];
     $id_cine = $_POST["id_cine"];;
 
-    $this->model->GuardarEditarPelicula($id, $nombre,$director,$rate,$horarios,$id_cine);
+    $this->model->GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_cine,$id);
 
-    header(PELICULAS);
+    header(PELICULASCINE.$id_cine);
   }
 
   function BorrarPelicula($param){
     $this->model->BorrarPelicula($param[0]);
-    header(PELICULAS);
+    header(PELICULASCINE.$id_cine);
   }
 }
 
