@@ -25,19 +25,18 @@ class PeliculaController extends SecuredController
   function MostrarPeliculas(){
     $Peliculas = $this->model->GetPeliculas();
     if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User");
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,"User",true);
     }else{
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,null);
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,null,true);
     }
   }
   function MostrarPelicula($param){
     $id_pelicula = $param[0];
-    $Peliculas = $this->model->GetPelicula($id_pelicula);    
-    $Cines = $this->modelCine->GetCines();
+    $Peliculas = $this->model->GetPelicula($id_pelicula);   
     if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User",$Cines);
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,"User",false);
     }else{
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,null,$Cines);
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,null,false);  
     }
   }
 

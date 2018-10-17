@@ -17,6 +17,13 @@ class PeliculaView
     $this->Smarty->assign('User', $User);
     $this->Smarty->display('templates/pelicula.tpl');
   }
+  function MostrarPeliculas($Titulo, $Pelicula,$User,$Cant){
+    $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
+    $this->Smarty->assign('Peliculas', $Pelicula);
+    $this->Smarty->assign('User', $User);
+    $this->Smarty->assign('Cant', $Cant);
+    $this->Smarty->display('templates/peliculas.tpl');
+  }
   
 
   function MostrarEditarPelicula($Titulo,$Pelicula, $User,$Cines){
