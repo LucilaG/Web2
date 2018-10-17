@@ -17,10 +17,10 @@
           <label for="rate">Rate</label>
           <input type="number" class="form-control" id="rate" name="rate" value="{$Pelicula["rate"]}" step="0.01">
         </div>
-        <div class="form-group">
-          <label for="horario">Horario</label>
-          <input type="time" class="form-control" id="horarios" name="horario" value="{$Pelicula["horario"]}">
-        </div>
+         <div class="form-group">
+            <label for="horarios">Horario</label>
+            <input type="time" class="form-control" id="horarios" name="horarios">
+          </div>
          <input type="hidden" class="form-control" id="id_cine" name="id_cine" value="{$Pelicula["id_cine"]}">
         <button type="submit" class="btn btn-primary">Modificar</button>
       </form>
