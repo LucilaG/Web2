@@ -2,12 +2,14 @@
 
 require_once  "./View/PeliculaView.php";
 require_once  "./Model/PeliculaModel.php";
+require_once  "./Model/CineModel.php";
 require_once  "SecuredController.php";
 
 class PeliculaController extends SecuredController
 {
   private $view;
-  private $model;
+  private $model;  
+  private $modelCine;
   private $Titulo;
 
   function __construct()
@@ -16,6 +18,7 @@ class PeliculaController extends SecuredController
 
     $this->view = new PeliculaView();
     $this->model = new PeliculaModel();
+    $this->modelCine = new CineModel();
     $this->Titulo = "Lista de Peliculas";
   }
  
@@ -29,21 +32,23 @@ class PeliculaController extends SecuredController
   }
   function MostrarPelicula($param){
     $id_pelicula = $param[0];
-    $Peliculas = $this->model->GetPelicula($id_pelicula);
+    $Peliculas = $this->model->GetPelicula($id_pelicula);    
+    $Cines = $this->modelCine->GetCines();
     if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User");
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,"User",$Cines);
     }else{
-      $this->view->Mostrar($this->Titulo, $Peliculas,null,null);
+      $this->view->Mostrar($this->Titulo, $Peliculas,null,null,$Cines);
     }
   }
 
   function MostrarPeliculasPorCine($param){
     $id_cine = $param[0];
-    $Peliculas = $this->model->GetPeliculas();
+    $Peliculas = $this->model->GetPeliculas();    
+    $Cines = $this->modelCine->GetCines();
     if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,"User");
+      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,"User",$Cines);
     }else{
-      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,null);
+      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,null,$Cines);
     }
   }
 
@@ -53,7 +58,8 @@ class PeliculaController extends SecuredController
       $id_pelicula = $param[0];
 
       $Pelicula = $this->model->GetPelicula($id_pelicula);
-      $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, "User");
+      $Cines = $this->modelCine->GetCines();
+      $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, "User",$Cines);
     }else{
       header(LOGIN);
     }
