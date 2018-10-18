@@ -38,7 +38,7 @@ class LoginController
       $pass = $_POST["passwordId"];
       $dbUser = $this->model->getUser($user);
 
-      if(isset($dbUser)){
+      if(isset($dbUser)&&isset($dbUser[0])){
           if (password_verify($pass, $dbUser[0]["pass"])){
               session_start();
               $_SESSION["User"] = $user;
@@ -51,7 +51,6 @@ class LoginController
         //No existe el usario
         $this->view->mostrarLogin("No existe el usario");
       }
-
   }
 
 }
