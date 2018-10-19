@@ -1,13 +1,15 @@
 <?php
+require_once "Model/CreateDDBBModel.php";
 /**
  *
  */
-class PeliculaModel
+class PeliculaModel extends CreateDDBBModel
 {
   private $db;
 
   function __construct()
   {
+    parent::__construct();
     $this->db = $this->Connect();
   }
 

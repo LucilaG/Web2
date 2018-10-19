@@ -2,7 +2,7 @@
 
 
 require_once "config/ConfigApp.php";
-
+require_once "Model/CreateDDBBModel.php";
 require_once "Controller/MostrarController.php";
 require_once "Controller/CineController.php";
 require_once "Controller/UsuarioController.php";

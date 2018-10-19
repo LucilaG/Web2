@@ -50,7 +50,7 @@ INSERT INTO `cine` (`id_cine`, `nombre`, `capacidad`, `sala`) VALUES
 --
 
 CREATE TABLE `pelicula` (
-  `id_pelicula` int(11) NOT NULL,
+  
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `director` text COLLATE utf8_spanish_ci NOT NULL,
   `rate` double(2,2) NOT NULL,
