@@ -34,7 +34,7 @@
                   </select>
                 </td>
                 {if $User != null}
-                  <td><a href="borrar/{$cine['id_cine']}">BORRAR</a></td>
+                  <td><a href="alertBorrar/{$cine['id_cine']}">BORRAR</a></td>
                   <td><a href="editar/{$cine['id_cine']}">EDITAR</a></td>
                 {/if}
               </tr>

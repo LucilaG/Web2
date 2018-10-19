@@ -75,11 +75,21 @@ class CineController extends SecuredController
   function BorrarCine($param){
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
-    $this->model->BorrarCine($param[0]);
+     $this->model->BorrarCine($param[0]);
   }else{
     header(LOGIN);
   }
     header(CINES);
+  }
+  function OpcionBorrarCine($param){
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
+      $id_cine = $param[0];
+      $Cine = $this->model->GetCine($id_cine);
+    $this->view->MostrarEliminarCine("Eliminar Cine",$Cine, $User);
+  }else{
+    header(LOGIN);
+  }
   }
 }
 

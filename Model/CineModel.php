@@ -38,8 +38,13 @@ class CineModel extends CreateDDBBModel
     $sentencia->execute(array($nombre,$capacidad,$sala));
   }
 
-  
+  function eliminarPeliculas($idCine){
+    
+  }
+
   function BorrarCine($idCine){
+    $senten = $this->db->prepare( "DELETE FROM pelicula WHERE id_cine=?");
+    $senten ->execute(array($idCine));
     $sentencia = $this->db->prepare( "DELETE FROM cine WHERE id_cine=?");
     $sentencia->execute(array($idCine));
   }

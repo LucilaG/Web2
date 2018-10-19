@@ -28,6 +28,14 @@ class CineView
     //$smarty->debugging = true;
     $this->Smarty->display('templates/MostrarEditarCine.tpl');
   }
+  function MostrarEliminarCine($Titulo,$Cine,$User){
+    $smarty= new Smarty();
+    $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
+    $this->Smarty->assign('Cine',$Cine);
+    $this->Smarty->assign('User', $User); 
+    $this->Smarty->display('templates/eliminarCine.tpl');
+
+  }
 
 }
 
