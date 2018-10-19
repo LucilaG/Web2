@@ -71,9 +71,12 @@ class PeliculaController extends SecuredController
     $horarios = $_POST["horarios"];
     $id_cine = $_POST["id_cine"];
 
-
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
     $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine);
-
+  }else{
+    header(LOGIN);
+  }
     header(PELICULASCINE.$id_cine);
   }
 
@@ -84,15 +87,25 @@ class PeliculaController extends SecuredController
     $rate = $_POST["rate"];
     $horarios = $_POST["horarios"];
     $id_cine = $_POST["id_cine"];;
-
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
     $this->model->GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_cine,$id);
-
     header(PELICULASCINE.$id_cine);
+    }else{
+    header(LOGIN);
+    }
+    
   }
 
   function BorrarPelicula($param){
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
     $this->model->BorrarPelicula($param[0]);
-    header(PELICULASCINE.$id_cine);
+    header(HOME); 
+    }else{
+    header(LOGIN);
+    }
+    
   }
 }
 

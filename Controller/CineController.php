@@ -47,8 +47,13 @@ class CineController extends SecuredController
     $nombre = $_POST["nombre"];
     $capacidad = $_POST["capacidad"];
     $sala = $_POST["sala"];
-    
-    $this->model->InsertarCine($nombre,$capacidad,$sala);
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
+      $this->model->InsertarCine($nombre,$capacidad,$sala);
+    }else{
+      header(LOGIN);
+    }
+   
 
     header(CINES);
   }
@@ -58,14 +63,22 @@ class CineController extends SecuredController
     $nombre = $_POST["nombre"];
     $capacidad = $_POST["capacidad"];
     $sala = $_POST["sala"];
-
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
     $this->model->GuardarEditarCine($nombre,$capacidad,$sala,$id_cine);
-
+  }else{
+    header(LOGIN);
+  }
     header(CINES);
   }
 
   function BorrarCine($param){
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
     $this->model->BorrarCine($param[0]);
+  }else{
+    header(LOGIN);
+  }
     header(CINES);
   }
 }
