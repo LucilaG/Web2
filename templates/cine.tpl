@@ -49,15 +49,15 @@
       <form method="post" action="agregar">
         <div class="form-group">
           <label for="nombre">Cine</label>
-          <input type="text" class="form-control" id="nombre" name="nombre">
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="form-group">
           <label for="capacidad">Capacidad</label>
-          <input type="text" class="form-control" id="capacidad" name="capacidad">
+          <input type="text" class="form-control" id="capacidad" name="capacidad" required>
         </div>
         <div class="form-group">
           <label for="sala">Sala</label>
-          <input type="text" class="form-control" id="sala" name="sala">
+          <input type="text" class="form-control" id="sala" name="sala" required>
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>

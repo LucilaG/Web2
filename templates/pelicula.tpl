@@ -45,19 +45,19 @@
         <form method="post" action="agregarPelicula">
           <div class="form-group">
             <label for="nombre">Pelicula</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
           </div>
           <div class="form-group">
             <label for="director">Director</label>
-            <input type="text" class="form-control" id="director" name="director">
+            <input type="text" class="form-control" id="director" name="director" required>
           </div>
           <div class="form-group">
             <label for="rate">Rate</label>
-            <input type="text" class="form-control" id="rate" name="rate" step="0.01">
+            <input type="text" class="form-control" id="rate" name="rate" step="0.01" required>
           </div>
           <div class="form-group">
             <label for="horarios">Horario</label>
-            <input type="time" class="form-control" id="horarios" name="horarios">
+            <input type="time" class="form-control" id="horarios" name="horarios" required>
           </div>
           <div class="form-group">
             <label for="id_cine">Cine</label>

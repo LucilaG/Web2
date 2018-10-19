@@ -8,11 +8,11 @@
           <form method="post" action="verificarLogin">
             <div class="form-group">
               <label for="exampleInputEmail1">Usuario</label>
-              <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Ingrese Usuario">
+              <input type="input" class="form-control" name="usuarioId" id="usuarioId" aria-describedby="usuarioId" placeholder="Ingrese Usuario" required>
               </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password">
+              <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password" required>
             </div>
             <div>
               {$Message}
