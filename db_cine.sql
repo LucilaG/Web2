@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2018 a las 16:14:18
--- Versión del servidor: 10.1.34-MariaDB
--- Versión de PHP: 7.2.8
+-- Tiempo de generación: 19-10-2018 a las 04:33:54
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,8 +40,10 @@ CREATE TABLE `cine` (
 --
 
 INSERT INTO `cine` (`id_cine`, `nombre`, `capacidad`, `sala`) VALUES
-(1, 'a', 20, 1),
-(2, 'a', 20, 1);
+(1, 'IMAX', 10, 2),
+(2, 'Cinemacenter', 300, 2),
+(11, 'Centro Cultural Atilio Marinelli', 200, 3),
+(12, 'Mediamark', 50, 3);
 
 -- --------------------------------------------------------
 
@@ -50,13 +52,23 @@ INSERT INTO `cine` (`id_cine`, `nombre`, `capacidad`, `sala`) VALUES
 --
 
 CREATE TABLE `pelicula` (
-  
+  `id_pelicula` int(11) NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `director` text COLLATE utf8_spanish_ci NOT NULL,
-  `rate` double(2,2) NOT NULL,
+  `rate` double(3,1) NOT NULL,
   `horarios` time NOT NULL,
   `id_cine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pelicula`
+--
+
+INSERT INTO `pelicula` (`id_pelicula`, `nombre`, `director`, `rate`, `horarios`, `id_cine`) VALUES
+(5, 'Christopher Robin', 'Marc Forster', 7.7, '16:00:00', 11),
+(6, 'V de Vendetta', 'James Mc', 10.0, '16:00:00', 1),
+(7, 'Dagoon', 'Block', 3.0, '00:00:00', 2),
+(8, 'Shrek', 'Burro', 9.0, '19:15:00', 12);
 
 -- --------------------------------------------------------
 
@@ -75,7 +87,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `pass`) VALUES
-(1, 'javito', 'javito01');
+(1, 'javito', '$2y$10$OPPsuCG6b5skzE/04DC8deLBdVxDN0chzQ16JThdJ2ztj1Nc86/IO'),
+(2, 'admin', '$2y$10$cZhmBEfbQ/OPpeeOmqE05OmqL6c47N7zjXI9LyESZFxAKThkrskIO');
 
 --
 -- Índices para tablas volcadas
@@ -108,19 +121,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cine`
 --
 ALTER TABLE `cine`
-  MODIFY `id_cine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
