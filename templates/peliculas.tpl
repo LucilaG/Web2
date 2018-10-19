@@ -62,7 +62,7 @@
           </div>
           <div class="form-group">
             <label for="rate">Rate</label>
-            <input type="number" class="form-control" id="rate" name="rate" required>
+            <input type="number" class="form-control" id="rate" name="rate" step="0.01" required>
           </div>
           <div class="form-group">
             <label for="horarios">Horario</label>

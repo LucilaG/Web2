@@ -38,7 +38,7 @@ class CreateDDBBModel
 id_pelicula int(11) NOT NULL AUTO_INCREMENT,
 nombre text COLLATE utf8_spanish_ci NOT NULL,
 director text COLLATE utf8_spanish_ci NOT NULL,
-rate int(2) NOT NULL,
+rate double(3,1) NOT NULL,
 horarios time NOT NULL,
 id_cine int(11) NOT NULL,
  PRIMARY KEY (id_pelicula),

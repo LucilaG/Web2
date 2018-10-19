@@ -11,7 +11,7 @@
         </div>
         <div class="form-group">
           <label for="director">Director</label>
-          <input type="text" class="form-control" id="director" name="director" value="{$Pelicula["director"]}" required>
+          <input type="text" class="form-control" id="director" name="director" value="{$Pelicula["director"]}" step="0.01" required>
         </div>
         <div class="form-group">
           <label for="rate">Rate</label>
