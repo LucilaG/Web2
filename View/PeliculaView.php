@@ -31,7 +31,6 @@ class PeliculaView
     $this->Smarty->assign('Pelicula',$Pelicula);
     $this->Smarty->assign('Cines',$Cines);
     $this->Smarty->assign('User', $User);
-    $this->Smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
     $this->Smarty->display('templates/MostrarEditarPelicula.tpl');
   }

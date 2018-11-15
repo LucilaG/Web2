@@ -29,9 +29,11 @@ class ConfigApp
       'peliculas' => 'PeliculaController#MostrarPeliculas',
       'pelicula' => 'PeliculaController#MostrarPelicula',
       'guardarEditar'=> 'CineController#GuardarEditarCine',
-      'mostrarUsuarios'=> 'UsuarioController#MostrarUsuario',
+      'usuarios'=> 'UsuarioController#MostrarUsuarios',
       'login'=> 'LoginController#login',
       'verificarLogin' => 'LoginController#verificarLogin',
+      'registro'=> 'UsuarioController#registro',
+      'insertarUsuario'=> 'UsuarioController#InsertUsuario',
       'logout'=> 'LoginController#logout',
     ];
 

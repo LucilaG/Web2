@@ -24,19 +24,21 @@ class PeliculaController extends SecuredController
  
   function MostrarPeliculas(){
     $Peliculas = $this->model->GetPeliculas();
-    if(isset($_SESSION["User"])){
-      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,"User",true);
+    if(isset($_SESSION["User"])){        
+      $User = $_SESSION["User"];
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas, $User, true);
     }else{
-      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,null,true);
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,$User='',true);
     }
   }
   function MostrarPelicula($param){
     $id_pelicula = $param[0];
     $Peliculas = $this->model->GetPelicula($id_pelicula);   
-    if(isset($_SESSION["User"])){
-      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,"User",false);
+    if(isset($_SESSION["User"])){        
+      $User = $_SESSION["User"];
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas, $User, false);
     }else{
-      $this->view->MostrarPeliculas($this->Titulo, $Peliculas,null,false);  
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas, null, false);  
     }
   }
 
@@ -44,8 +46,9 @@ class PeliculaController extends SecuredController
     $id_cine = $param[0];
     $Peliculas = $this->model->GetPeliculas();    
     $Cines = $this->modelCine->GetCines();
-    if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,"User",$Cines);
+    if(isset($_SESSION["User"])){        
+      $User = $_SESSION["User"];
+      $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,$User,$Cines);
     }else{
       $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,null,$Cines);
     }
@@ -58,7 +61,7 @@ class PeliculaController extends SecuredController
 
       $Pelicula = $this->model->GetPelicula($id_pelicula);
       $Cines = $this->modelCine->GetCines();
-      $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, "User",$Cines);
+      $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, $User, $Cines);
     }else{
       header(LOGIN);
     }
@@ -97,13 +100,13 @@ class PeliculaController extends SecuredController
     
   }
 
-  function BorrarPelicula($param){
-    if(isset($_SESSION["User"])){
-      $User = $_SESSION["User"];
-    $this->model->BorrarPelicula($param[0]);
-    header(HOME); 
+  function BorrarPelicula($param){                 
+    $User = $this->chequearUser();
+    if($User){
+      $this->model->BorrarPelicula($param[0]);
+      header(CINES); 
     }else{
-    header(LOGIN);
+      header(LOGIN);
     }
     
   }

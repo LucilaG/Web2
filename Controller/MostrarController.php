@@ -16,15 +16,6 @@ class MostrarController extends SecuredController
     $this->viewcontacto = new ContactoView();
   }
 
-  /*function SetearUser(){
-    if(isset($_SESSION["User"])){        
-        $User = $_SESSION["User"];
-      }else{
-        $User = '';
-      }
-      return $User;
-  }*/
-
   function MostrarHome(){
     if(isset($_SESSION["User"])){        
         $User = $_SESSION["User"];

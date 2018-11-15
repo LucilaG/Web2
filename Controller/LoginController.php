@@ -2,9 +2,9 @@
 
 require_once  "./View/LoginView.php";
 require_once  "./Model/UsuarioModel.php";
+require_once  "SecuredController.php";
 
-
-class LoginController
+class LoginController extends SecuredController
 {
   private $view;
   private $model;
@@ -12,6 +12,8 @@ class LoginController
 
   function __construct()
   {
+    parent::__construct();
+
     $this->view = new LoginView();
     $this->model = new UsuarioModel();
     $this->Titulo = "Login";
@@ -27,11 +29,11 @@ class LoginController
 
   }
 
-  function logout(){
+  /*function logout(){
     session_start();
     session_destroy();
     header(LOGIN);
-  }
+  }*/
 
   function verificarLogin(){
       $user = $_POST["usuarioId"];

@@ -22,20 +22,16 @@ class CineController extends SecuredController
 
   function Cine(){
       $Cines = $this->model->GetCines();
-      $Pelicula = $this->modelPelicula->GetPeliculas();
-      if(isset($_SESSION["User"])){        
-        $User = $_SESSION["User"];
+      $Pelicula = $this->modelPelicula->GetPeliculas();             
+        $User = $this->chequearUser();
         $this->view->Mostrar($this->Titulo, $Cines, $Pelicula, $User);
-      }else{
-        $this->view->Mostrar($this->Titulo, $Cines, $Pelicula, null);
-      }
+      
   }
 
-  function EditarCine($param){
-    if(isset($_SESSION["User"])){
-      $User = $_SESSION["User"];
+  function EditarCine($param){                 
+    $User = $this->chequearUser();
+    if($User){
       $id_cine = $param[0];
-
       $Cine = $this->model->GetCine($id_cine);
       $this->view->MostrarEditarCine("Editar Cine",$Cine, $User);
     }else{

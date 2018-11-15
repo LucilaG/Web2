@@ -13,15 +13,24 @@
                     <a class="nav-link enlaceacontenido" href="cines">Cines</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link enlaceacontenido" href="peliculas">Peliculas</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link enlaceacontenido" href="contacto">Contacto</a>
                 </li>
                 {if $User != null}
                     <li class="nav-item">
                         <a class="nav-link enlaceacontenido" href="logout">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link enlaceacontenido" href="usuarios">Usuarios</a>
+                    </li>
                 {else}
                     <li class="nav-item">
                         <a class="nav-link enlaceacontenido" href="login">Login</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link enlaceacontenido" href="registro">Registro</a>
                     </li>
                 {/if}
             </ul>

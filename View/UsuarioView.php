@@ -1,17 +1,28 @@
 <?php
-require_once ('libs/Smarty.class.php');
-/**
- *
- */
+
 class UsuarioView
 {
+  private $Smarty;
 
-  function Mostrar($Titulo, $Usuarios){
-    $smarty = new Smarty();
-    $smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
-    $smarty->assign('Usuarios',$Usuarios);
-    //$smarty->debugging = true;
-    $smarty->display('templates/MostrarUsuarios.tpl');
+  function __construct()
+  {
+    $this->Smarty = new Smarty();
+  }
+
+  function mostrarRegistro($message = '', $User = ''){
+    $this->Smarty->assign('Titulo',"Registro");
+    $this->Smarty->assign('Message',$message);
+    $this->Smarty->assign('User', $User);
+    
+    $this->Smarty->display('templates/registro.tpl');
+  }
+
+  function MostrarUsers($Titulo,$Usuarios='',$User=''){
+    $this->Smarty->assign('Titulo',$Titulo);
+    $this->Smarty->assign('Usuarios',$Usuarios);    
+    $this->Smarty->assign('User',$User);
+
+    $this->Smarty->display('templates/MostrarUsuarios.tpl');
   }
 }
 

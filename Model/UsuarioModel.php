@@ -19,7 +19,7 @@ class UsuarioModel extends CreateDDBBModel
     , 'root', '');
   }
 
-  function GetUsuario(){
+  function GetUsuarios(){
 
       $sentencia = $this->db->prepare( "select * from usuario");
       $sentencia->execute();
