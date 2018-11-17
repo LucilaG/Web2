@@ -2,9 +2,17 @@
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>
+    <form method="post" action="mostrarPeliculaCondicion">          
+          <div class="form-group">
+            <label for="rate">Seleccionar peliculas por puntuación</label>
+            <input type="number" min=0 max=10 id="rate" name="rate"/> 
+          </div>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
 
+    
     <div class="container">
-      <div class="row">
+      <div class="row">      
         <table class="table table-hover col-10 offset-1">
           <thead>
             <tr>

@@ -32,7 +32,12 @@ function GetPelicula($id){
   $sentencia->execute(array($id));
   return $sentencia->fetch(PDO::FETCH_ASSOC);
 }
-  
+
+function GetPeliculaCondicion($rate){
+  $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE rate >= ?");
+  $sentencia->execute(array($rate));
+  return $sentencia->fetch(PDO::FETCH_ASSOC);
+}
 
 function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine){                                  
   $sentencia = $this->db->prepare("INSERT INTO pelicula (nombre, director, rate, horarios, id_cine) VALUES (?, ?, ?, ?,?);");

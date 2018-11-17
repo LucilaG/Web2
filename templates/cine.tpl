@@ -2,7 +2,7 @@
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>
-
+    
     <div class="container">
       <div class="row">
         <table class="table table-hover col-10 offset-1">
@@ -63,4 +63,8 @@
       </form>
     </div>
   {/if}
+  <div id="cine-container" class="container">
+     
+  </div>
+
 {include file="footer.tpl"}

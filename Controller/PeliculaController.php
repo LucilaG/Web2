@@ -42,6 +42,17 @@ class PeliculaController extends SecuredController
     }
   }
 
+  function MostrarPeliculaCondicion(){
+    $rate = $_POST["rate"];
+    $Peliculas = $this->model->GetPeliculaCondicion($rate);   
+    if(isset($_SESSION["User"])){        
+      $User = $_SESSION["User"];
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas, $User, false);
+    }else{
+      $this->view->MostrarPeliculas($this->Titulo, $Peliculas, null, false);  
+    }
+  }
+
   function MostrarPeliculasPorCine($param){
     $id_cine = $param[0];
     $Peliculas = $this->model->GetPeliculas();    
