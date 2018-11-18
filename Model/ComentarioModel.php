@@ -1,5 +1,5 @@
 <?php
-require_once "Model/CreateDDBBModel.php";
+require_once "CreateDDBBModel.php";
 /**
  *
  */

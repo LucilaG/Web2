@@ -9,8 +9,8 @@ class ComentarioApiController extends Api
   private $model;
   private $Titulo;
 
-  function __construct()
-  {
+  function __construct(){
+    
     parent::__construct();
     $this->view = new ComentarioView();
     $this->model = new ComentarioModel();
@@ -34,7 +34,6 @@ class ComentarioApiController extends Api
     }else{
       $data = $this->model->GetComentarios();
     }
-      }
   }
 
   function DeleteComentario($param = null){

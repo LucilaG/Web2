@@ -9,8 +9,7 @@ class CineApiController extends Api
   private $model;
   private $Titulo;
 
-  function __construct()
-  {
+  function __construct(){
     parent::__construct();
     $this->view = new CineView();
     $this->model = new CineModel();
@@ -34,7 +33,6 @@ class CineApiController extends Api
     }else{
       $data = $this->model->GetCines();
     }
-      }
   }
 
   function DeleteCine($param = null){
