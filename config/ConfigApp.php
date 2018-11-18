@@ -35,7 +35,7 @@ class ConfigApp
       'registro'=> 'UsuarioController#registro',
       'insertarUsuario'=> 'UsuarioController#InsertUsuario',
       'logout'=> 'LoginController#logout',
-      'mostrarPeliculaCondicion' => 'PeliculaController#MostrarPeliculaCondicion'
+      'mostrarPeliculaCondicion' => 'PeliculaController#MostrarPeliculaCondicion',
     ];
 
 }

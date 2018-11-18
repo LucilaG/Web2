@@ -2,7 +2,7 @@
 
 
 require_once "config/ConfigApi.php";
-require_once "controller/TareasApiController.php";
+require_once "controller/ComentarioApiController.php";
 
 function parseURL($url)
 {

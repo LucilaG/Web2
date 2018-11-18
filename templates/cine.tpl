@@ -63,8 +63,6 @@
       </form>
     </div>
   {/if}
-  <div id="cine-container" class="container">
-     
-  </div>
-
+  
+  
 {include file="footer.tpl"}
