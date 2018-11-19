@@ -2,11 +2,9 @@
 
 require_once "Api.php";
 require_once "./../Model/ComentarioModel.php";
-require_once "./../View/CineView.php";
 
 class ComentarioApiController extends Api
 {
-  private $view;
   private $model;
   private $Titulo;
 
@@ -14,26 +12,23 @@ class ComentarioApiController extends Api
     
     parent::__construct();
     $this->model = new ComentarioModel();
-    $this->viewCine = new CineView();
     $this->Titulo = "Comentario";
   }
 
   function GetComentario($param = null){
-
     if(isset($param)){
       $id_comentario = $param[0];
-      $data = $this->model->GetComentario($id_comentario);
-        $id_comentario = $param[0];
-        $arreglo = $this->model->GetComentario($id_comentario);
-
-        if(count($param)==2 && $param[1] == "description"){
-          $data = $arreglo;
-        }
-
-
+      $arreglo = $this->model->GetComentarios($id_comentario);
+      $data = $arreglo;
     }else{
-      $data = $this->model->GetComentarios();
+      $data = $this->model->GetComentario();
     }
+    if(isset($data)){
+      return $this->json_response($data, 200);
+    }else{
+      return $this->json_response(null, 404);
+    }
+
   }
 
   function DeleteComentario($param = null){
@@ -53,7 +48,7 @@ class ComentarioApiController extends Api
   function InsertComentario($param = null){
 
     $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertComentario($objetoJson->id, $objetoJson->Comentario, $objetoJson->puntaje,$objetoJson->id_cine );
+    $r = $this->model->InsertComentario($objetoJson->id, $objetoJson->Comentario, $objetoJson->puntaje,$objetoJson->id_comentario );
 
     return $this->json_response($r, 200);
   }
@@ -62,7 +57,7 @@ class ComentarioApiController extends Api
     if(count($param) == 1){
       $idComentario = $param[0];
       $objetoJson = $this->getJSONData();
-      $r = $this->model->GuardarEditarComentario($objetoJson->id, $objetoJson->Comentario, $objetoJson->puntaje,$objetoJson->id_cine );
+      $r = $this->model->GuardarEditarComentario($objetoJson->id, $objetoJson->Comentario, $objetoJson->puntaje,$objetoJson->id_comentario );
       return $this->json_response($r, 200);
 
     }else{

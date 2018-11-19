@@ -1,36 +1,31 @@
 'use strict'
-let templateCine;
+let templateComentario;
+
 
 fetch('js/templates/comentariosCine.handlebars')
-.then(response => response.text())
-.then(template => {
-    templateCine = Handlebars.compile(template); 
-    getCine();
-});
+    .then(response => response.text())
+    .then(template => {
+        templateComentario = Handlebars.compile(template);
+        getComentario();
+    });
 
 
-function getCine() {
-    fetch("cine")
-    .then(response => response.json())
-    .then(jsonCine => {
-        mostrarCine(jsonCine);
-    })
+function getComentario() {
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+    fetch('api/comentario/' + id)
+        .then(response => response.json())
+        .then(jsonComentario => {
+            mostrarComentario(jsonComentario);
+            console.log(jsonComentario);
+        })
 }
 
-/*function getUser() {
-    fetch("api/usuario")
-    .then(response => response.json())
-    .then(jsonUsuario => {
-        mostrarCine(jsonUsuario);
-    })
-}*/
-
-function mostrarCine(jsonCine) {
+function mostrarComentario(jsonComentario) {
     let context = { // como el assign de smarty
-        cine: jsonCine, 
-        //usuario:jsonUsuario,
-        titulo: "Comentarios",
+        comentario: jsonComentario,
+        titulo: "Comentarios"
     }
-    let html = templateCine(context);
+    let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;
 }

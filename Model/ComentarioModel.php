@@ -19,20 +19,20 @@ class ComentarioModel extends CreateDDBBModel
     , 'root', '');
   }
 
-  function GetComentario(){
-
-      $sentencia = $this->db->prepare( "SELECT * FROM comentario");
-      $sentencia->execute();
+  function GetComentarios($id_cine){
+      $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_cine=?");
+      $sentencia->execute(array($id_cine));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+  function GetComentario(){
+    $sentencia = $this->db->prepare( "SELECT * FROM comentario");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+}
 
   function InsertarComentario($id, $comentario, $puntaje,$id_cine){                                  
     $sentencia = $this->db->prepare("INSERT INTO `comentario`(`id`, `comentario`, `puntaje`, `id_cine`)  VALUES (?, ?, ?, ?);");
     $sentencia->execute(array($id, $comentario, $puntaje,$id_cine));
-  }
-
-  function eliminarPeliculas($idCine){
-    
   }
 
   function DeleteComentario($idComentario){

@@ -39,6 +39,10 @@
         </table>
       </div>
     </div>
+    <p>Comen</p>
+    <div id="cine-container" class="container">
+     
+    </div>
   {if $User != null}
     <div class="container">
         <h2>Agregar Pelicula</h2>
@@ -74,9 +78,6 @@
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>
-    <div id="cine-container" class="container">
-     
-    </div>
     {if $User != null}
     <div class="container">
       <h2>Agregar Comentario</h2>
@@ -85,7 +86,7 @@
           <input type="text" class="form-control" id="nombre" name="nombre" required>
           <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5  required>
           <input  type="hidden" class="form-control" id="id" name="id"  required>
-          <input  type="hidden" class="form-control" id="id_cine" name="id_cine"  required>
+          <input  type="hidden" class="form-control" id="id_cine" name="id_cine" required>
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
