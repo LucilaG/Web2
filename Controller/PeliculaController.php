@@ -84,10 +84,10 @@ class PeliculaController extends SecuredController
     $rate = $_POST["rate"];
     $horarios = $_POST["horarios"];
     $id_cine = $_POST["id_cine"];
-
+    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
-    $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine);
+    $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine,$rutaTempImagenes[0]);
   }else{
     header(LOGIN);
   }
@@ -122,5 +122,7 @@ class PeliculaController extends SecuredController
     
   }
 }
+
+
 
  ?>

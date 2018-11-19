@@ -59,7 +59,7 @@
   {if $User != null}
     <div class="container">
         <h2>Agregar Pelicula</h2>
-        <form method="post" action="agregarPelicula">
+        <form method="post" action="agregarPelicula" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nombre">Pelicula</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -84,6 +84,9 @@
               {/foreach}
             </select>
           </div>
+          <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="file" id="imagenes" name="imagenes[]">
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>

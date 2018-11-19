@@ -39,7 +39,8 @@ function GetPeliculaCondicion($rate){
   return $sentencia->fetch(PDO::FETCH_ASSOC);
 }
 
-function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine){                                  
+function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine,$tempPath){    
+  $path = $this->subirImagen($tempPath);                              
   $sentencia = $this->db->prepare("INSERT INTO pelicula (nombre, director, rate, horarios, id_cine) VALUES (?, ?, ?, ?,?);");
   $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine));
 }
@@ -53,6 +54,14 @@ function GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_cine,$id_pe
   $sentencia = $this->db->prepare( "UPDATE pelicula SET nombre = ?, director = ?, rate = ?, horarios = ?, id_cine = ? WHERE id_pelicula = ?");
   $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine,$id_pelicula));
 }
+
+function subirImagen($imagen){
+  $destino_final = 'images/' . uniqid() . '.jpg';
+  echo "destino_final: ".$destino_final;
+  move_uploaded_file($imagen, $destino_final);
+  return $destino_final;
+}
+
 }
 
 
