@@ -78,19 +78,5 @@
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>
-    {if $User != null}
-    <div class="container">
-      <h2>Agregar Comentario</h2>
-      <form method="post" action="api/comentario">
-        <div class="form-group">
-          <input type="text" class="form-control" id="nombre" name="nombre" required>
-          <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5  required>
-          <input  type="hidden" class="form-control" id="id" name="id"  required>
-          <input  type="hidden" class="form-control" id="id_cine" name="id_cine" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Agregar</button>
-      </form>
-    </div>
-  {/if}
   {/if}
 {include file="footer.tpl"}
