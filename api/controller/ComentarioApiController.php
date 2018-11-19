@@ -1,7 +1,8 @@
 <?php
 
 require_once "Api.php";
-require_once "./../model/ComentarioModel.php";
+require_once "./../Model/ComentarioModel.php";
+require_once "./../View/CineView.php";
 
 class ComentarioApiController extends Api
 {
@@ -12,9 +13,8 @@ class ComentarioApiController extends Api
   function __construct(){
     
     parent::__construct();
-    $this->view = new ComentarioView();
     $this->model = new ComentarioModel();
-    $this->modelPelicula = new PeliculaModel();
+    $this->viewCine = new CineView();
     $this->Titulo = "Comentario";
   }
 

@@ -76,7 +76,7 @@
     {if $User != null}
     <div class="container">
       <h2>Agregar Comentario</h2>
-      <form method="post" action="agregarComentario">
+      <form method="post" action="api/comentario">
         <div class="form-group">
           <input type="text" class="form-control" id="nombre" name="nombre" required>
           <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5  required>
