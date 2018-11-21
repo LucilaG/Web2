@@ -21,6 +21,10 @@ function getComentario() {
         })
 }
 
+function getUser(){
+
+}
+
 function mostrarComentario(jsonComentario) {
     let context = { // como el assign de smarty
         comentario: jsonComentario,

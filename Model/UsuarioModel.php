@@ -39,6 +39,11 @@ class UsuarioModel extends CreateDDBBModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function EditUser($user){
+    $sentencia = $this->db->prepare( "UPDATE `usuario` SET `nombre`=?,`pass`=?,`admin`=? WHERE id_cine=?");
+    $sentencia->execute(array($nombre,$pass,$admin,$id));
+  }
+
 }
 
 
