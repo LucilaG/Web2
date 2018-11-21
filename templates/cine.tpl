@@ -20,7 +20,7 @@
           <tbody>
             {foreach from=$Cines item=cine}
               <tr>
-                <td><a href="peliculasPorCine/{$cine['id_cine']}/{$User['id']}">{$cine['nombre']}</td>
+                <td><a href="peliculasPorCine/{$cine['id_cine']}/{$User}">{$cine['nombre']}</td>
                 <td>{$cine['capacidad']}</td>
                 <td>{$cine['sala']}</td>
                 <td>

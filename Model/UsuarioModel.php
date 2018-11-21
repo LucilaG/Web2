@@ -1,5 +1,4 @@
 <?php
-require_once "Model/CreateDDBBModel.php";
 /**
  *
  */
@@ -33,9 +32,8 @@ class UsuarioModel extends CreateDDBBModel
   }
 
   function GetUser($user){
-
-      $sentencia = $this->db->prepare( "select * from usuario where nombre=? limit 1");
-      $sentencia->execute(array($user));
+      $sentencia = $this->db->prepare( "select * from usuario where id=? limit 1");
+      $sentencia->execute(array($user[0]));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 

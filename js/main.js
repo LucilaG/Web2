@@ -12,7 +12,7 @@ fetch('js/templates/comentariosCine.handlebars')
 
 function getComentario() {
     var url = window.location.pathname;
-    var id = url.substring(url.lastIndexOf('/') + 1);
+    var id = url.substring(url.lastIndexOf('/') - 1,url.lastIndexOf('/'));
     fetch('api/comentario/' + id)
         .then(response => response.json())
         .then(jsonComentario => {
@@ -22,7 +22,13 @@ function getComentario() {
 }
 
 function getUser(){
-
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+    fetch('api/usuario/' + id)
+    .then(response => response.json())
+    .then(jsonUsuario => {
+        console.log(jsonUsuario);
+    })
 }
 
 function mostrarComentario(jsonComentario) {
