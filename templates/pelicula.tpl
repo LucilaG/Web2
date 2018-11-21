@@ -39,7 +39,8 @@
         </table>
       </div>
     </div>
-    <p>Comen</p>
+    
+    <!--<p>Comen</p>-->
     <div id="cine-container" class="container">
      
     </div>
