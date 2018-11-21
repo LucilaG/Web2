@@ -81,14 +81,14 @@
     {if $User != null}
     <div class="container">
       <h2>Agregar Comentario</h2>
-      <form method="post" action="api/comentario">
+      <form method="" action="">
         <div class="form-group">
-          <input type="text" class="form-control" id="nombre" name="nombre" required>
-          <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5  required>
-          <input  type="hidden" class="form-control" id="id" name="id"  required>
-          <input  type="hidden" class="form-control" id="id_cine" name="id_cine" required>
+          <input type="text" class="form-control" id="comentario" name="comentario" placeholder="Comentario" required>
+          <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5 placeholder="Puntaje" required>
+          <input  type="hidden" class="form-control" id="id" name="id" value="14" required>
+          <input  type="hidden" class="form-control" id="id_cine" name="id_cine" value="11" required>
         </div>
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="submit" class="btn btn-primary " id="enviarComentario">Agregar</button>
       </form>
     </div>
   {/if}

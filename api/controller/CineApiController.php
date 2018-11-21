@@ -1,12 +1,15 @@
 <?php
 
 require_once "Api.php";
-require_once "./../model/CineModel.php";
+require_once "./../View/CineView.php";
+require_once "./../Model/CineModel.php";
+require_once "./../Model/PeliculaModel.php";
 
 class CineApiController extends Api
 {
   private $view;
   private $model;
+  private $modelPelicula;
   private $Titulo;
 
   function __construct(){

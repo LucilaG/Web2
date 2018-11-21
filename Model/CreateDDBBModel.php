@@ -54,6 +54,19 @@ id_cine int(11) NOT NULL,
  PRIMARY KEY (id)
      )'); 
  $crear_tb_usuario->execute();
+
+ $crear_tb_comentario = $this->pdo->prepare('
+ CREATE TABLE IF NOT EXISTS comentario (
+ id_comentario int(11) NOT NULL AUTO_INCREMENT,
+ id int(11) NOT NULL,
+ comentario varchar(256) COLLATE utf8_spanish_ci NOT NULL,
+ puntaje double(3,1) NOT NULL,
+ id_cine int(11) NOT NULL,
+ PRIMARY KEY (id_comentario)
+ FOREIGN KEY (id) REFERENCES usuario(id)
+ FOREIGN KEY (id_cine) REFERENCES cine(id_cine)
+     )'); 
+ $crear_tb_comentario->execute();
  
  
 
