@@ -2,7 +2,6 @@
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>
-    
     <div class="container">
       <div class="row">
         <table class="table table-hover col-10 offset-1">
@@ -21,7 +20,7 @@
           <tbody>
             {foreach from=$Cines item=cine}
               <tr>
-                <td><a href="peliculasPorCine/{$cine['id_cine']}">{$cine['nombre']}</td>
+                <td><a href="peliculasPorCine/{$cine['id_cine']}/{$User['id']}">{$cine['nombre']}</td>
                 <td>{$cine['capacidad']}</td>
                 <td>{$cine['sala']}</td>
                 <td>
