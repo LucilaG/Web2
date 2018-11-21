@@ -10,17 +10,29 @@ fetch('js/templates/comentariosCine.handlebars')
     .then(response => response.text())
     .then(template => {
         templateComentario = Handlebars.compile(template);
-        let id_cine = document.querySelector("#id_cine").value;
-        getComentario(id_cine);
+        getComentario();
     });
 
 
-function getComentario(id_cine) {
-    fetch('api/comentario/' + id_cine)
+function getComentario() {
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') - 1,url.lastIndexOf('/'));
+    fetch('api/comentario/' + id)
         .then(response => response.json())
         .then(jsonComentario => {
             mostrarComentario(jsonComentario);
+            console.log(jsonComentario);
         })
+}
+
+function getUser(){
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+    fetch('api/usuario/' + id)
+    .then(response => response.json())
+    .then(jsonUsuario => {
+        console.log(jsonUsuario);
+    })
 }
 
 function mostrarComentario(jsonComentario) {
@@ -51,6 +63,6 @@ function enviarComentario() {
         },
         body: JSON.stringify(objetoJSON)
     }).then(response =>
-        getComentario(id_cine)
+        getComentario()
     );
   }
