@@ -8,6 +8,7 @@ class ConfigApi
       'comentario#GET' => 'ComentarioApiController#GetComentario',
       'comentario#POST' => 'ComentarioApiController#InsertComentario',
       'comentario#DELETE' => 'ComentarioApiController#eliminarComentario',
+      'comentariosCine#GET' => 'ComentarioApiController#GetComentarioCine',
       'usuario#GET' => 'UsuarioSecuredApiController#getUsuario',
     ];
 

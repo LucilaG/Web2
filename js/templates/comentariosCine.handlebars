@@ -1,23 +1,12 @@
 <h1>{{titulo}}</h1>
-{{#if user}}
-<div class="container">
-  <h2>Agregar Comentario</h2>
-  <form method="post" action="api/comentario">
-    <div class="form-group">
-      <input type="text" class="form-control" id="comentario" name="comentario" required>
-      <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5 required>
-    </div>
-    <button type="submit" class="btn btn-primary" id="enviarComentario">Agregar</button>
-  </form>
-</div>
-{{/if}}
+
 {{#if admin}}
 <ul class="list-group">
   {{#each comentario}}
   <p>Cine {{id_cine}}</p>
   <p>{{comentario}}</p>
   <p>{{puntaje}}</p>
-  <button type="submit" value="{{id_comentario}}" class="btn btn-lg borrarComentario">BORRAR</button>
+  <button type="submit" value="{{id_comentario}}" class="btn btn-lg" id="eliminarComentario">BORRAR</button>
   {{/each}}
 </ul>
 {{else}}

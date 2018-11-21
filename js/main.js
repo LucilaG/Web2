@@ -1,29 +1,37 @@
 'use strict'
 let templateComentario;
 
-fetch('js/templates/comentariosCine.handlebars')
-    .then(response => response.text())
-    .then(template => {
-        templateComentario = Handlebars.compile(template);
-        getComentario();
-        enviarBoton();
-    });
+document.addEventListener("DOMContentLoaded", load);
 
-    function enviarBoton() {
-        var url = window.location.pathname;
-        var id = url.substring(url.lastIndexOf('/') + 1);
-        if(id != null){
-            document.querySelector('#enviarComentario').addEventListener('click', e => {
-                e.preventDefault();
-                enviarComentario()
-            });
-        }
+function load() {
+    fetch('js/templates/comentariosCine.handlebars')
+        .then(response => response.text())
+        .then(template => {
+            templateComentario = Handlebars.compile(template);
+            getComentario();
+
+        });
+    let enviar = document.querySelector('#enviarComentario');
+    enviar.addEventListener('click', enviarComentario);
+
+}
+
+
+function enviarBoton() {
+    var url = window.location.pathname;
+    var id = url.substring(url.lastIndexOf('/') + 1);
+    if (id != null) {
+        document.querySelector('#eliminarComentario').addEventListener('click', e => {
+            e.preventDefault();
+            deleteComentario()
+        });
     }
+}
 
 function getComentario() {
     var url = window.location.pathname;
     var id = url.substring(url.lastIndexOf('/') - 1, url.lastIndexOf('/'));
-    fetch('api/comentario/' + id)
+    fetch('api/comentariosCine/' + id)
         .then(response => response.json())
         .then(jsonComentario => {
             getUser(jsonComentario);
@@ -56,15 +64,10 @@ function mostrarComentario(jsonComentario, jsonUsuario) {
 }
 
 function enviarComentario() {
-    var url = window.location.pathname;
     let id = url.substring(url.lastIndexOf('/') + 1);
     let comentario = document.querySelector('#comentario').value;
     let puntaje = document.querySelector('#puntaje').value;
     let id_cine = url.substring(url.lastIndexOf('/') - 1, url.lastIndexOf('/'));
-    console.log("id usuario" + id);
-    console.log("comen" + comentario);
-    console.log("puntaje" + puntaje);
-    console.log("id_cine" + id_cine);
     let objetoJSON = {
         "id": id,
         "comentario": comentario,
@@ -73,12 +76,31 @@ function enviarComentario() {
     }
     console.log(objetoJSON);
     fetch("api/comentario/", {
-        method: 'POST',
-        headers: {
+        'method': 'POST',
+        'headers': { 'content-type': 'application/json' },
+        'body': JSON.stringify(objetoJSON)
+    })
+        .then(r => {
+            if (r.ok) {
+                r.json().then(t => {
+                    console.log("Se cargo con éxito");
+                    getComentarios();
+
+                })
+            }
+        })
+};
+
+function deleteComentario() {
+    let id = document.querySelector('#eliminarComentario').value;
+    console.log("valor boton" + id);
+    fetch('api/comentario/' + id, {
+        "method": 'Delete',
+        "headers": {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(objetoJSON)
-    }).then(response =>
-        getComentario()
-    );
+        }
+    }).then(response => response.json())
+        .catch(function (e) {
+            console.log(e)
+        });
 }

@@ -20,14 +20,26 @@ class ComentarioApiController extends Api
       $id_comentario = $param[0];
       $data = $this->model->GetComentarios($id_comentario);
     }else{
-      $data = $this->model->GetComentario();
+      $data = $this->model->GetComentariosCine();
     }
     if(isset($data)){
       return $this->json_response($data, 200);
     }else{
       return $this->json_response(null, 404);
     }
-
+  }
+  function GetComentarioCine($param = null){
+    if(isset($param)){
+      $id_cine= $param[0];
+      $data = $this->model->GetComentariosCine($id_cine);
+    }else{
+      $data = $this->model->GetComentariosCine();
+    }
+    if(isset($data)){
+      return $this->json_response($data, 200);
+    }else{
+      return $this->json_response(null, 404);
+    }
   }
 
   function DeleteComentario($param = null){

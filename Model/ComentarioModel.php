@@ -20,9 +20,15 @@ class ComentarioModel extends CreateDDBBModel
   }
 
   function GetComentarios($id_comentario){
-      $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_cine=?");
+      $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_comentario=?");
       $sentencia->execute(array($id_comentario));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function GetComentariosCine($id_cine){
+    $sentencia = $this->db->prepare( "SELECT * FROM comentario WHERE id_cine=?");
+    $sentencia->execute(array($id_cine));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   
   function GetComentario(){
