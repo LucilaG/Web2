@@ -17,17 +17,6 @@ function load() {
 }
 
 
-function enviarBoton() {
-    var url = window.location.pathname;
-    var id = url.substring(url.lastIndexOf('/') + 1);
-    if (id != null) {
-        document.querySelector('#eliminarComentario').addEventListener('click', e => {
-            e.preventDefault();
-            deleteComentario()
-        });
-    }
-}
-
 function getComentario() {
     var url = window.location.pathname;
     var id = url.substring(url.lastIndexOf('/') - 1, url.lastIndexOf('/'));
@@ -35,8 +24,10 @@ function getComentario() {
         .then(response => response.json())
         .then(jsonComentario => {
             getUser(jsonComentario);
-        })
+        });
 }
+
+
 
 function getUser(jsonComentario) {
     var url = window.location.pathname;
@@ -61,6 +52,13 @@ function mostrarComentario(jsonComentario, jsonUsuario) {
     }
     let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;
+    setTimeout(botonEliminar,1000);
+}
+
+function botonEliminar(){
+    let b = document.querySelectorAll("#eliminarComentario");
+    console.log(b);
+    b.forEach(b=> {b.addEventListener("click",function(){deleteComentario(b.getAttribute("data"))})});
 }
 
 function enviarComentario() {
@@ -91,16 +89,11 @@ function enviarComentario() {
         })
 };
 
-function deleteComentario() {
-    let id = document.querySelector('#eliminarComentario').value;
+function deleteComentario(id) {
     console.log("valor boton" + id);
     fetch('api/comentario/' + id, {
-        "method": 'Delete',
-        "headers": {
-            'Content-Type': 'application/json'
-        }
-    }).then(response => response.json())
-        .catch(function (e) {
-            console.log(e)
-        });
+        'method': 'DELETE',
+    'headers': {'Content-Type': 'application/json'},
+    })
+.then(r => load())
 }
