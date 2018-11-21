@@ -43,6 +43,8 @@ function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine,$tempPath){
   $path = $this->subirImagen($tempPath);                              
   $sentencia = $this->db->prepare("INSERT INTO pelicula (nombre, director, rate, horarios, id_cine) VALUES (?, ?, ?, ?,?);");
   $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine));
+  $ultimoId = $this->db->lastInsertId();
+  $this->subirImagenes($tempPath, $ultimoId);
 }
 
 function BorrarPelicula($idPelicula){
@@ -55,11 +57,12 @@ function GuardarEditarPelicula($nombre,$director,$rate,$horarios,$id_cine,$id_pe
   $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine,$id_pelicula));
 }
 
-function subirImagen($imagen){
+function subirImagen($imagen,$id_pelicula){
   $destino_final = 'images/' . uniqid() . '.jpg';
-  echo "destino_final: ".$destino_final;
   move_uploaded_file($imagen, $destino_final);
-  return $destino_final;
+  return $destino_final;  
+  $sentencia = $this->db->prepare("INSERT INTO imagen(id_pelicula, url) VALUES(?,?)");
+  $sentencia->execute(array($id_pelicula,$destino_final));
 }
 
 }

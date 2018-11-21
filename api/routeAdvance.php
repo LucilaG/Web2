@@ -5,6 +5,7 @@ require_once "config/ConfigApi.php";
 require_once "controller/ComentarioApiController.php";
 require_once "controller/UsuarioSecuredApiController.php";
 
+
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);

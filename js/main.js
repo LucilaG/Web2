@@ -20,25 +20,28 @@ function getComentario() {
     fetch('api/comentario/' + id)
         .then(response => response.json())
         .then(jsonComentario => {
-            mostrarComentario(jsonComentario);
-            console.log(jsonComentario);
+           getUser(jsonComentario);
         })
 }
 
-function getUser(){
+function getUser(jsonComentario){
     var url = window.location.pathname;
     var id = url.substring(url.lastIndexOf('/') + 1);
     fetch('api/usuario/' + id)
     .then(response => response.json())
     .then(jsonUsuario => {
-        console.log(jsonUsuario);
+        mostrarComentario(jsonComentario,jsonUsuario)
     })
 }
 
-function mostrarComentario(jsonComentario) {
+function mostrarComentario(jsonComentario,jsonUsuario) {
+    let admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
+    let user = ((jsonUsuario != null) ? true : false);
     let context = { // como el assign de smarty
         comentario: jsonComentario,
-        titulo: "Comentarios"
+        titulo: "Comentarios",
+        admin: admin,
+        user: user,
     }
     let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;

@@ -16,7 +16,7 @@ class UsuarioSecuredApiController extends ApiSecuredController
 
   function getUsuario($param){    
     if(isset($param)){
-        $arreglo = $this->model->GetUser($param);
+        $arreglo = $this->model->getUsuario($param);
         $data = $arreglo;
       }else{
         $data = $this->model->GetUsuarios();

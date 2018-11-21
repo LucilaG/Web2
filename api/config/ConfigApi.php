@@ -7,7 +7,7 @@ class ConfigApi
     public static $RESOURCES = [
       'comentario#GET' => 'ComentarioApiController#GetComentario',
       'comentario#POST' => 'ComentarioApiController#InsertComentario',
-      'usuario#GET' => 'UsuarioSecuredApiController#GetUsuario',
+      'usuario#GET' => 'UsuarioSecuredApiController#getUsuario',
     ];
 
 }
