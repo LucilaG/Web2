@@ -43,7 +43,7 @@ class LoginController extends SecuredController
       if(isset($dbUser)&&isset($dbUser[0])){
           if (password_verify($pass, $dbUser[0]["pass"])){
               session_start();
-              $_SESSION["User"] = $user;
+              $_SESSION["User"] = $dbUser[0]["id"];
               header(HOME);
           }else{
             $this->view->mostrarLogin('Contraseña incorrecta');
