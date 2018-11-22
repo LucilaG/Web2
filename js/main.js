@@ -18,8 +18,8 @@ function load() {
 
 
 function getComentario() {
-    var url = window.location.pathname;
-    var id = url.substring(url.lastIndexOf('/') - 1, url.lastIndexOf('/'));
+    let url = window.location.pathname;
+    let id = url.substring(url.lastIndexOf('/') - 1, url.lastIndexOf('/'));
     fetch('api/comentariosCine/' + id)
         .then(response => response.json())
         .then(jsonComentario => {
@@ -30,8 +30,8 @@ function getComentario() {
 
 
 function getUser(jsonComentario) {
-    var url = window.location.pathname;
-    var id = url.substring(url.lastIndexOf('/') + 1);
+    let url = window.location.pathname;
+    let id = url.substring(url.lastIndexOf('/') + 1);
     fetch('api/usuario/' + id)
         .then(response => response.json())
         .then(jsonUsuario => {
@@ -40,6 +40,7 @@ function getUser(jsonComentario) {
 }
 
 function mostrarComentario(jsonComentario, jsonUsuario) {
+    console.log(jsonUsuario[0]);
     let admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
     let user = ((jsonUsuario != null) ? true : false);
     console.log(admin);
@@ -62,7 +63,7 @@ function botonEliminar(){
 }
 
 function enviarComentario() {
-    var url = window.location.pathname;
+    let url = window.location.pathname;
     let id = url.substring(url.lastIndexOf('/') + 1);
     let comentario = document.querySelector('#comentario').value;
     let puntaje = document.querySelector('#puntaje').value;
