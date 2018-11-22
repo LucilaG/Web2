@@ -15,7 +15,7 @@
               <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password" required>
             </div>
             <div>
-              {$Message}
+              <p>{$Message}</p>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>

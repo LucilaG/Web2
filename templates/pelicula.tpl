@@ -12,9 +12,11 @@
               <th scope="col">Director</th>
               <th scope="col">Rate</th>
               <th scope="col">Horario</th>
-              {if $User != null}
+              {if (isset($smarty.session.User))}
+              {if $smarty.session.admin == 1}
                 <th scope="col">Eliminar</th>
                 <th scope="col">Modificar</th>
+              {/if}  
               {/if}
             </tr>
           </thead>
@@ -27,10 +29,12 @@
                     <td>{$pelicula['director']}</td>
                     <td>{$pelicula['rate']}</td>
                     <td>{$pelicula['horarios']}</td>
-                    {if $User != null}
+                    {if (isset($smarty.session.User))}
+                    {if $smarty.session.admin == 1}
                       <td><a href="borrarPelicula/{$pelicula['id_pelicula']}">BORRAR</a></td>
                       <td><a href="editarPelicula/{$pelicula['id_pelicula']}">EDITAR</a></td>
                     {/if}  
+                    {/if}
                   </tr>
                 {/if}  
               {/if}  
@@ -44,7 +48,8 @@
     <div id="cine-container" class="container">
      
     </div>
-  {if $User != null}
+  {if (isset($smarty.session.User))}
+  {if $smarty.session.admin == 1}
     <div class="container">
         <h2>Agregar Pelicula</h2>
         <form method="post" action="agregarPelicula" enctype="multipart/form-data">
@@ -80,16 +85,17 @@
         </form>
     </div>
   {/if}
+  {/if}
   {if $User}
 <div class="container">
   <h2>Agregar Comentario</h2>
-  <form>
+  
     <div class="form-group">
       <input type="text" class="form-control" id="comentario" name="comentario" required>
       <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5 required>
     </div>
     <button type="submit" class="btn btn-primary" id="enviarComentario">Agregar</button>
-  </form>
+  
 </div>
 {/if}
 {include file="footer.tpl"}

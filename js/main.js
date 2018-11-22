@@ -62,6 +62,7 @@ function botonEliminar(){
 }
 
 function enviarComentario() {
+    var url = window.location.pathname;
     let id = url.substring(url.lastIndexOf('/') + 1);
     let comentario = document.querySelector('#comentario').value;
     let puntaje = document.querySelector('#puntaje').value;
@@ -82,11 +83,17 @@ function enviarComentario() {
             if (r.ok) {
                 r.json().then(t => {
                     console.log("Se cargo con éxito");
-                    getComentarios();
+                    getComentario();
 
                 })
             }
         })
+        let borrarCampoComment = document.querySelector('#comentario');
+        let borrarCampoPuntaje = document.querySelector('#puntaje');
+        borrarCampoComment.value='';
+        borrarCampoComment.innerHTML='';
+        borrarCampoPuntaje.value='';
+        borrarCampoPuntaje.innerHTML='';
 };
 
 function deleteComentario(id) {

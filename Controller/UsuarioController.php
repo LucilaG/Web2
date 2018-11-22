@@ -20,12 +20,16 @@ class UsuarioController extends SecuredController
 
   function MostrarUsuarios(){    
       
-      if(isset($_SESSION["User"])){
+      if(isset($_SESSION["admin"])&&$_SESSION["admin"]==1){
         $Usuarios = $this->model->GetUsuarios();        
         $User = $_SESSION["User"];
         $this->view->MostrarUsers($this->Titulo, $Usuarios,$User);
       }else{
-        header(LOGIN);
+        if($_SESSION["User"]){
+          header(HOME);
+        }else{
+          header(LOGIN);
+        }
       }
 
   }
