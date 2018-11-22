@@ -10,7 +10,7 @@
                     <a class="nav-link enlaceacontenido" href="home">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link enlaceacontenido"  id="peliculasPorCine" href="cines">Cines</a>
+                    <a class="nav-link enlaceacontenido"  href="cines">Cines</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link enlaceacontenido" href="peliculas">Peliculas</a>

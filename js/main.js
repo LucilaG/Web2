@@ -1,8 +1,7 @@
 'use strict'
 let templateComentario;
 
-
-document.querySelector("#peliculasPorCine").addEventListener('click', load);
+document.addEventListener("DOMContentLoaded", load);
 
 function load() {
     fetch('js/templates/comentariosCine.handlebars')
@@ -14,7 +13,6 @@ function load() {
         });
     let enviar = document.querySelector('#enviarComentario');
     enviar.addEventListener('click', enviarComentario);
-    //let timer = setInterval(getComentario, 2000);
 }
 
 

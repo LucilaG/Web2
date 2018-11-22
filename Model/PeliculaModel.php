@@ -43,7 +43,7 @@ function GetPelicula($id){
 function GetPeliculaCondicion($rate){
   $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE rate >= ?");
   $sentencia->execute(array($rate));
-  return $sentencia->fetch(PDO::FETCH_ASSOC);
+  return $sentencia->fetchAll(PDO::FETCH_ASSOC);
 }
 function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine){    
   //$path = $this->subirImagen($tempPath);                              
