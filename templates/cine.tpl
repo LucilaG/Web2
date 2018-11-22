@@ -11,9 +11,11 @@
               <th scope="col">Capacidad</th>
               <th scope="col">Salas</th>
               <th scope="col">Peliculas</th>
-                {if $User}
+              {if (isset($smarty.session.User))}
+              {if $smarty.session.admin == 1}
                 <th scope="col">Eliminar</th>
                 <th scope="col">Modificar</th>
+              {/if}
               {/if}
             </tr>
           </thead>
@@ -32,9 +34,11 @@
                     {/foreach}  
                   </select>
                 </td>
-                {if $User}
+                {if (isset($smarty.session.User))}
+                {if $smarty.session.admin == 1}
                   <td><a href="alertBorrar/{$cine['id_cine']}">BORRAR</a></td>
                   <td><a href="editar/{$cine['id_cine']}">EDITAR</a></td>
+                {/if}
                 {/if}
               </tr>
             {/foreach}            
@@ -42,7 +46,8 @@
         </table>
       </div>
     </div>
-      {if $User}
+{if (isset($smarty.session.User))}
+{if $smarty.session.admin == 1}
     <div class="container">
       <h2>Agregar Cine</h2>
       <form method="post" action="agregar">
@@ -61,6 +66,7 @@
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
     </div>
+  {/if}
   {/if}
   
   
