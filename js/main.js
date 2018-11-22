@@ -13,7 +13,7 @@ function load() {
         });
     let enviar = document.querySelector('#enviarComentario');
     enviar.addEventListener('click', enviarComentario);
-    let timer = setInterval(getComentario, 2000);
+    //let timer = setInterval(getComentario, 2000);
 }
 
 

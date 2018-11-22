@@ -1,21 +1,17 @@
 <?php
-
 require_once  "./View/PeliculaView.php";
 require_once  "./Model/PeliculaModel.php";
 require_once  "./Model/CineModel.php";
 require_once  "SecuredController.php";
-
 class PeliculaController extends SecuredController
 {
   private $view;
   private $model;  
   private $modelCine;
   private $Titulo;
-
   function __construct()
   {
     parent::__construct();
-
     $this->view = new PeliculaView();
     $this->model = new PeliculaModel();
     $this->modelCine = new CineModel();
@@ -41,7 +37,6 @@ class PeliculaController extends SecuredController
       $this->view->MostrarPeliculas($this->Titulo, $Peliculas, null, false);  
     }
   }
-
   function MostrarPeliculaCondicion(){
     $rate = $_POST["rate"];
     $Peliculas = $this->model->GetPeliculaCondicion($rate);   
@@ -52,7 +47,6 @@ class PeliculaController extends SecuredController
       $this->view->MostrarPeliculas($this->Titulo, $Peliculas, null, false);  
     }
   }
-
   function MostrarPeliculasPorCine($param=0){
     $id_cine = $param[0];
     $Peliculas = $this->model->GetPeliculas();    
@@ -64,12 +58,10 @@ class PeliculaController extends SecuredController
       $this->view->Mostrar($this->Titulo, $Peliculas,$id_cine,null,$Cines);
     }
   }
-
   function EditarPelicula($param){
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
       $id_pelicula = $param[0];
-
       $Pelicula = $this->model->GetPelicula($id_pelicula);
       $Cines = $this->modelCine->GetCines();
       $this->view->MostrarEditarPelicula("Editar Pelicula", $Pelicula, $User, $Cines);
@@ -77,7 +69,6 @@ class PeliculaController extends SecuredController
       header(LOGIN);
     }
   }
-
   function InsertPelicula(){
     $nombre = $_POST["nombre"];
     $director = $_POST["director"];
@@ -93,7 +84,6 @@ class PeliculaController extends SecuredController
   }
     header(PELICULASCINE.$id_cine);
   }
-
   function GuardarEditarPelicula(){
     $id = $_POST["id"];
     $nombre = $_POST["nombre"];
@@ -110,7 +100,6 @@ class PeliculaController extends SecuredController
     }
     
   }
-
   function BorrarPelicula($param){                 
     $User = $this->chequearUser();
     if($User){
@@ -122,7 +111,4 @@ class PeliculaController extends SecuredController
     
   }
 }
-
-
-
  ?>
