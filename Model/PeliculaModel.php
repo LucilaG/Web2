@@ -21,6 +21,20 @@ class PeliculaModel extends CreateDDBBModel
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
 }
+function subirImagen($imagen){
+  $destino_final = 'images/' . uniqid() . '.jpg';
+  move_uploaded_file($imagen, $destino_final);
+  return $destino_final;
+}
+function insertImagenes($id_pelicula,$rutaTempImagenes){
+  foreach ($rutaTempImagenes as $path) {
+    $destino = 'images/' . uniqid() . '.jpg';
+
+    move_uploaded_file($path, $destino);
+    $sentencia = $this->db->prepare("INSERT INTO imagen(id_pelicula, url) VALUES(?,?)");
+    $sentencia->execute(array($id_pelicula,$destino));
+  }
+}
 function GetPelicula($id){
   $sentencia = $this->db->prepare( "SELECT * FROM pelicula WHERE id_pelicula=?");
   $sentencia->execute(array($id));

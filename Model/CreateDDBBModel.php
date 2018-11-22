@@ -33,6 +33,11 @@ class CreateDDBBModel
      )'); 
  $crear_tb_cine->execute();
 
+ $crear_cine = $this->pdo->prepare('
+ INSERT INTO `cine`(`id_cine`, `nombre`, `capacidad`, `sala`) VALUES (1,"Cinemacenter",300, 2)
+ '); 
+ $crear_cine->execute();
+
  $crear_tb_pelicula = $this->pdo->prepare('
  CREATE TABLE IF NOT EXISTS pelicula (
     id_pelicula int(11) NOT NULL AUTO_INCREMENT,
@@ -45,6 +50,11 @@ class CreateDDBBModel
  FOREIGN KEY (id_cine) REFERENCES cine(id_cine)
      )'); 
  $crear_tb_pelicula->execute();
+
+ $crear_pelicula = $this->pdo->prepare('
+ INSERT INTO `pelicula`(`id_pelicula`, `nombre`, `director`, `rate`, `horarios`, `id_cine`) VALUES (1,"Bohemian Rhapsody","Bryan Singer",10,22:40:00,1)
+ '); 
+ $crear_pelicula->execute();
 
  $crear_tb_usuario = $this->pdo->prepare('
  CREATE TABLE IF NOT EXISTS usuario (

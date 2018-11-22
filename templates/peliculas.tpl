@@ -2,6 +2,7 @@
 {include file="header.tpl"}
 
     <h1>{$Titulo}</h1>
+     {if $Cant}
     <form method="post" action="mostrarPeliculaCondicion">          
           <div class="form-group">
             <label for="rate">Seleccionar peliculas por puntuación</label>
@@ -9,8 +10,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
-
-    
+    {/if} 
     <div class="container">
       <div class="row">      
         <table class="table table-hover col-10 offset-1">
@@ -41,19 +41,26 @@
                       <td><a href="borrarPelicula/{$pelicula['id_pelicula']}">BORRAR</a></td>
                       <td><a href="editarPelicula/{$pelicula['id_pelicula']}">EDITAR</a></td>
                       <td>
-                      <form  method="post" action="agregarImagen/{$pelicula['id_pelicula']}" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" id="imagenes" name="imagenes[]" multiple>
-                        </div>
-                        <button type="submit" class="btn btn-primary" >Agregar</button>
-                    <form>
                     </td>
                     {/if}  
                     {/if} 
                   </tr>
             {/foreach}  
             {else}
+            {if $Imagenes != null}
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner"> 
+              <div class="carousel-item active imgporelmundo">
+                <img class="d-block w-100" src="img/3d.png" alt="First slide">
+              </div>
+                {foreach from=$Imagenes item=imag}
+                <div class="carousel-item">
+                  <img class="d-block w-100" src={$imag['url']} >
+                </div> 
+                {/foreach}              
+              </div>
+               </div>
+            {/if} 
             <tr>
                 <td>{$Peliculas['nombre']}</td>
                 <td>{$Peliculas['director']}</td>

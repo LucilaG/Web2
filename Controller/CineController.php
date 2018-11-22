@@ -77,6 +77,7 @@ class CineController extends SecuredController
   }
     header(CINES);
   }
+
   function OpcionBorrarCine($param){
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];

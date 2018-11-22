@@ -1,11 +1,11 @@
 <?php
 
-define('HOME', 'Location: home');
-define('LOGIN', 'Location: login');
-define('LOGOUT', 'Location: logout');
-define('CINES', 'Location: cines');
-define('PELICULAS', 'Location: peliculas');
-define('PELICULASCINE', 'Location: peliculasPorCine/');
+define('HOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/login');
+define('LOGOUT', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/logout');
+define('CINES', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/cines');
+define('PELICULAS', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/peliculas');
+define('PELICULASCINE', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/peliculasPorCine/');
 
 
 class ConfigApp
