@@ -9,13 +9,11 @@ function load() {
         .then(template => {
             templateComentario = Handlebars.compile(template);
             getComentario();
-
         });
     let enviar = document.querySelector('#enviarComentario');
     enviar.addEventListener('click', enviarComentario);
     //let timer = setInterval(getComentario, 2000);
 }
-
 
 function getComentario() {
     let url = window.location.pathname;
@@ -41,9 +39,17 @@ function getUser(jsonComentario) {
 
 function mostrarComentario(jsonComentario, jsonUsuario) {
     let admin = false;
+<<<<<<< HEAD
     if(jsonUsuario[0] != null){
         admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
     }
+=======
+    console.log(jsonUsuario);
+    if (jsonUsuario.length != 0) {
+        admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
+    }
+    console.log("admin" + admin);
+>>>>>>> 5803a453805f0248876cf3df1483775ef816eb52
     let context = { // como el assign de smarty
         comentario: jsonComentario,
         titulo: "Comentarios",
@@ -51,13 +57,12 @@ function mostrarComentario(jsonComentario, jsonUsuario) {
     }
     let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;
-    setTimeout(botonEliminar,1000);
+    setTimeout(botonEliminar, 1000);
 }
 
-function botonEliminar(){
+function botonEliminar() {
     let b = document.querySelectorAll("#eliminarComentario");
-    console.log(b);
-    b.forEach(b=> {b.addEventListener("click",function(){deleteComentario(b.getAttribute("data"))})});
+    b.forEach(b => { b.addEventListener("click", function () { deleteComentario(b.getAttribute("data")) }) });
 }
 
 function enviarComentario() {
@@ -86,18 +91,11 @@ function enviarComentario() {
                 })
             }
         })
-        let borrarCampoComment = document.querySelector('#comentario');
-        let borrarCampoPuntaje = document.querySelector('#puntaje');
-        borrarCampoComment.value='';
-        borrarCampoComment.innerHTML='';
-        borrarCampoPuntaje.value='';
-        borrarCampoPuntaje.innerHTML='';
 };
-
 function deleteComentario(id) {
     fetch('api/comentario/' + id, {
         'method': 'DELETE',
-    'headers': {'Content-Type': 'application/json'},
+        'headers': { 'Content-Type': 'application/json' },
     })
-.then(r => load())
+        .then(r => load())
 }

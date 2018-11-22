@@ -1,20 +1,12 @@
 <h1>{{titulo}}</h1>
 
-{{#if admin}}
 <ul class="list-group">
   {{#each comentario}}
-  <p>Cine {{id_cine}}</p>
-  <p>{{comentario}}</p>
-  <p>{{puntaje}}</p>
-  <button type="submit" data="{{id_comentario}}" class="btn btn-lg" id="eliminarComentario">BORRAR</button>
+    <p>Cine {{id_cine}}</p>
+    <p>{{comentario}}</p>
+    <p>{{puntaje}}</p>
+      {{#if ../admin}}
+      <button type="submit" data="{{id_comentario}}" class="btn btn-lg" id="eliminarComentario">BORRAR</button>
+      {{/if}} 
   {{/each}}
 </ul>
-{{else}}
-<ul class="list-group">
-  {{#each comentario}}
-  <p>Cine {{id_cine}}</p>
-  <p>{{comentario}}</p>
-  <p>{{puntaje}}</p>
-  {{/each}}
-</ul>
-{{/if}}
