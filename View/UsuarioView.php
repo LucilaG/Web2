@@ -17,13 +17,6 @@ class UsuarioView
     $this->Smarty->display('templates/registro.tpl');
   }
 
-  function MostrarUsers($Titulo,$Usuarios='',$User=''){
-    $this->Smarty->assign('Titulo',$Titulo);
-    $this->Smarty->assign('Usuarios',$Usuarios);    
-    $this->Smarty->assign('User',$User);
-
-    $this->Smarty->display('templates/MostrarUsuarios.tpl');
-  }
 }
 
  ?>

@@ -5,7 +5,7 @@ define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["
 define('LOGOUT', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/logout');
 define('CINES', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/cines');
 define('PELICULAS', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/peliculas');
-define('PELICULASCINE', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/peliculasPorCine/');
+define('PELICULASCINE', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/peliculasPorCine');
 
 
 class ConfigApp
@@ -29,7 +29,6 @@ class ConfigApp
       'peliculas' => 'PeliculaController#MostrarPeliculas',
       'pelicula' => 'PeliculaController#MostrarPelicula',
       'guardarEditar'=> 'CineController#GuardarEditarCine',
-      'usuarios'=> 'UsuarioController#MostrarUsuarios',
       'login'=> 'LoginController#login',
       'verificarLogin' => 'LoginController#verificarLogin',
       'registro'=> 'UsuarioController#registro',

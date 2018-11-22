@@ -15,26 +15,7 @@ class UsuarioController extends SecuredController
     
     $this->view = new UsuarioView();
     $this->model = new UsuarioModel();
-    $this->Titulo = "Lista de Usuario";
   }
-
-  function MostrarUsuarios(){    
-      
-      if(isset($_SESSION["admin"])&&$_SESSION["admin"]==1){
-        $Usuarios = $this->model->GetUsuarios();        
-        $User = $_SESSION["User"];
-        $this->view->MostrarUsers($this->Titulo, $Usuarios,$User);
-      }else{
-        if($_SESSION["User"]){
-          header(HOME);
-        }else{
-          header(LOGIN);
-        }
-      }
-
-  }
-
-  
 
   function registro(){
     if(isset($_SESSION["User"])){        
@@ -44,6 +25,8 @@ class UsuarioController extends SecuredController
       $this->view->mostrarRegistro(null);
     }
   }
+  
+
 
   function InsertUsuario(){
     $nombre = $_POST["nombre"];
@@ -54,11 +37,32 @@ class UsuarioController extends SecuredController
     if(empty($dbUser)){
       $this->model->InsertarUsuario($nombre,$hash);
       $_SESSION["User"] = $nombre;
+      $this->verificarLogin($nombre, $pass);
       header(HOME);
     }else{
       $this->view->mostrarRegistro(null);
     }    
   }
+  
+  function verificarLogin($user, $pass){
+    $dbUser = $this->model->getUser($user);
+
+    if(isset($dbUser)&&isset($dbUser[0])){
+        if (password_verify($pass, $dbUser[0]["pass"])){
+            session_start();
+            $_SESSION["User"] = $dbUser[0]["id"];
+            $_SESSION["admin"] = $dbUser[0]["admin"];
+            echo $_SESSION["admin"];
+            header(HOME);
+        }else{
+          $this->view->mostrarLogin('Contraseña incorrecta');
+
+        }
+    }else{
+      //No existe el usario
+      $this->view->mostrarLogin("No existe el usario");
+    }
+}
 }
 
  ?>

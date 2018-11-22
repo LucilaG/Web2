@@ -29,12 +29,6 @@ class LoginController extends SecuredController
 
   }
 
-  /*function logout(){
-    session_start();
-    session_destroy();
-    header(LOGIN);
-  }*/
-
   function verificarLogin(){
       $user = $_POST["usuarioId"];
       $pass = $_POST["passwordId"];
