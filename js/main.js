@@ -40,16 +40,14 @@ function getUser(jsonComentario) {
 }
 
 function mostrarComentario(jsonComentario, jsonUsuario) {
-    console.log(jsonUsuario[0]);
-    let admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
-    let user = ((jsonUsuario != null) ? true : false);
-    console.log(admin);
-    console.log(user);
+    let admin = false;
+    if(jsonUsuario[0] != null){
+        admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
+    }
     let context = { // como el assign de smarty
         comentario: jsonComentario,
         titulo: "Comentarios",
         admin: admin,
-        user: user,
     }
     let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;
