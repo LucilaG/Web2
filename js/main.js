@@ -9,13 +9,11 @@ function load() {
         .then(template => {
             templateComentario = Handlebars.compile(template);
             getComentario();
-
         });
     let enviar = document.querySelector('#enviarComentario');
     enviar.addEventListener('click', enviarComentario);
     //let timer = setInterval(getComentario, 2000);
 }
-
 
 function getComentario() {
     var url = window.location.pathname;
@@ -40,25 +38,25 @@ function getUser(jsonComentario) {
 }
 
 function mostrarComentario(jsonComentario, jsonUsuario) {
-    let admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
-    let user = ((jsonUsuario != null) ? true : false);
-    console.log(admin);
-    console.log(user);
+    let admin = false;
+    console.log(jsonUsuario);
+    if (jsonUsuario.length != 0) {
+        admin = ((jsonUsuario[0]["admin"] == 1) ? true : false);
+    }
+    console.log("admin" + admin);
     let context = { // como el assign de smarty
         comentario: jsonComentario,
         titulo: "Comentarios",
         admin: admin,
-        user: user,
     }
     let html = templateComentario(context);
     document.querySelector("#cine-container").innerHTML = html;
-    setTimeout(botonEliminar,1000);
+    setTimeout(botonEliminar, 1000);
 }
 
-function botonEliminar(){
+function botonEliminar() {
     let b = document.querySelectorAll("#eliminarComentario");
-    console.log(b);
-    b.forEach(b=> {b.addEventListener("click",function(){deleteComentario(b.getAttribute("data"))})});
+    b.forEach(b => { b.addEventListener("click", function () { deleteComentario(b.getAttribute("data")) }) });
 }
 
 function enviarComentario() {
@@ -87,18 +85,11 @@ function enviarComentario() {
                 })
             }
         })
-        let borrarCampoComment = document.querySelector('#comentario');
-        let borrarCampoPuntaje = document.querySelector('#puntaje');
-        borrarCampoComment.value='';
-        borrarCampoComment.innerHTML='';
-        borrarCampoPuntaje.value='';
-        borrarCampoPuntaje.innerHTML='';
 };
-
 function deleteComentario(id) {
     fetch('api/comentario/' + id, {
         'method': 'DELETE',
-    'headers': {'Content-Type': 'application/json'},
+        'headers': { 'Content-Type': 'application/json' },
     })
-.then(r => load())
+        .then(r => load())
 }

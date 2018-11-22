@@ -20,11 +20,9 @@
               <th scope="col">Director</th>
               <th scope="col">Rate</th>
               <th scope="col">Horario</th>
-              {if (isset($smarty.session.User))}
-              {if $smarty.session.admin == 1}
+              {if $User}
                 <th scope="col">Eliminar</th>
                 <th scope="col">Modificar</th>
-              {/if}
               {/if}
             </tr>
           </thead>
@@ -36,11 +34,9 @@
                     <td>{$pelicula['director']}</td>
                     <td>{$pelicula['rate']}</td>
                     <td>{$pelicula['horarios']}</td>
-                    {if (isset($smarty.session.User))}
-                    {if $smarty.session.admin == 1}
+                    {if $User}
                       <td><a href="borrarPelicula/{$pelicula['id_pelicula']}">BORRAR</a></td>
                       <td><a href="editarPelicula/{$pelicula['id_pelicula']}">EDITAR</a></td>
-                    {/if}  
                     {/if} 
                   </tr>
             {/foreach}  
@@ -50,11 +46,9 @@
                 <td>{$Peliculas['director']}</td>
                 <td>{$Peliculas['rate']}</td>
                 <td>{$Peliculas['horarios']}</td>
-                {if (isset($smarty.session.User))}
-                {if $smarty.session.admin == 1}
+               {if $User}
                     <td><a href="borrarPelicula/{$pelicula['id_pelicula']}">BORRAR</a></td>
                     <td><a href="editarPelicula/{$pelicula['id_pelicula']}">EDITAR</a></td>
-                {/if}
                 {/if}  
             </tr>
             {/if}       
@@ -62,8 +56,7 @@
         </table>
       </div>
     </div>
-  {if (isset($smarty.session.User))}
-  {if $smarty.session.admin == 1}
+ {if $User}
     <div class="container">
         <h2>Agregar Pelicula</h2>
         <form method="post" action="agregarPelicula" enctype="multipart/form-data">
@@ -97,7 +90,6 @@
           <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
     </div>
-  {/if}
   {/if}
   
 {include file="footer.tpl"}
