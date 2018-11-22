@@ -51,6 +51,7 @@ id_cine int(11) NOT NULL,
  id int(11) NOT NULL AUTO_INCREMENT,
  nombre varchar(100) COLLATE utf8_spanish_ci NOT NULL,
  pass varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+ admin tinyint(1) NOT NULL,
  PRIMARY KEY (id)
      )'); 
  $crear_tb_usuario->execute();
@@ -68,7 +69,13 @@ id_cine int(11) NOT NULL,
      )'); 
  $crear_tb_comentario->execute();
  
+ $crear_user = $this->pdo->prepare('
  
+ INSERT INTO usuario (id, nombre, pass, admin) VALUES
+(1, "admin", "$2y$10$cZhmBEfbQ/OPpeeOmqE05OmqL6c47N7zjXI9LyESZFxAKThkrskIO", 1),
+ 
+ '); 
+ $crear_user->execute();
 
  endif;
  

@@ -13,7 +13,7 @@ function load() {
         });
     let enviar = document.querySelector('#enviarComentario');
     enviar.addEventListener('click', enviarComentario);
-
+    let timer = setInterval(getComentario, 2000);
 }
 
 
@@ -73,7 +73,6 @@ function enviarComentario() {
         "puntaje": puntaje,
         "id_cine": id_cine
     }
-    console.log(objetoJSON);
     fetch("api/comentario/", {
         'method': 'POST',
         'headers': { 'content-type': 'application/json' },
@@ -97,7 +96,6 @@ function enviarComentario() {
 };
 
 function deleteComentario(id) {
-    console.log("valor boton" + id);
     fetch('api/comentario/' + id, {
         'method': 'DELETE',
     'headers': {'Content-Type': 'application/json'},

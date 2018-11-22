@@ -88,14 +88,15 @@
   {/if}
   {if $User}
 <div class="container">
-  <h2>Agregar Comentario</h2>
-  
-    <div class="form-group">
-      <input type="text" class="form-control" id="comentario" name="comentario" required>
-      <input type="number" class="form-control" id="puntaje" name="puntaje" min=0 max=5 required>
-    </div>
-    <button type="submit" class="btn btn-primary" id="enviarComentario">Agregar</button>
-  
+  <h2>Agregar Comentario</h2>  
+    <form action="" method="">  
+      <div class="form-group">
+        <input type="text" class="form-control" id="comentario" name="comentario" required>
+        <label for="puntaje">Puntaje</label>
+        <input type="range" class="form-control" id="puntaje" name="puntaje" min="0" max="5" required>  
+      </div>
+      <button type="submit" class="btn btn-primary" id="enviarComentario">Agregar</button>
+    <form>  
 </div>
 {/if}
 {include file="footer.tpl"}
