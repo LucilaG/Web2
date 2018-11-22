@@ -1,7 +1,8 @@
 'use strict'
 let templateComentario;
 
-document.addEventListener("DOMContentLoaded", load);
+
+document.querySelector("#peliculasPorCine").addEventListener('click', load);
 
 function load() {
     fetch('js/templates/comentariosCine.handlebars')
