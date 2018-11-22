@@ -22,12 +22,10 @@
                     <li class="nav-item">
                         <a class="nav-link enlaceacontenido" href="logout">Logout</a>
                     </li>
-                    {if (isset($smarty.session.User))}
-                    {if $smarty.session.admin == 1}
+                    {if $User}
                     <li class="nav-item">
                         <a class="nav-link enlaceacontenido" href="usuarios">Usuarios</a>
                     </li>
-                    {/if}
                     {/if}
                 {else}
                     <li class="nav-item">
