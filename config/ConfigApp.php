@@ -36,6 +36,7 @@ class ConfigApp
       'insertarUsuario'=> 'UsuarioController#InsertUsuario',
       'logout'=> 'LoginController#logout',
       'mostrarPeliculaCondicion' => 'PeliculaController#MostrarPeliculaCondicion',
+      'agregarImagen' => 'PeliculaController#agregarImagen',
     ];
 
 }

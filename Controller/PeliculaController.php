@@ -2,6 +2,7 @@
 require_once  "./View/PeliculaView.php";
 require_once  "./Model/PeliculaModel.php";
 require_once  "./Model/CineModel.php";
+require_once  "./Model/ImagenModel.php";
 require_once  "SecuredController.php";
 class PeliculaController extends SecuredController
 {
@@ -15,6 +16,7 @@ class PeliculaController extends SecuredController
     $this->view = new PeliculaView();
     $this->model = new PeliculaModel();
     $this->modelCine = new CineModel();
+    $this->imagenModel = new ImagenModel();
     $this->Titulo = "Lista de Peliculas";
   }
  
@@ -69,16 +71,36 @@ class PeliculaController extends SecuredController
       header(LOGIN);
     }
   }
+
+  function agregarImagen($param){
+    $id_pelicula =  $param[0];
+    $arrayImagenes = array();
+
+    if (isset($_FILES['imagenes'])){
+
+      $cantidad= count($_FILES["imagenes"]["tmp_name"]);
+
+      for ($i=0; $i<$cantidad; $i++){
+         //Comprobamos si el fichero es una imagen
+        if ($_FILES['imagenes']['type'][$i]=='image/png' || $_FILES['imagenes']['type'][$i]=='image/jpeg'){
+          array_push($arrayImagenes, $this->imagenModel->insert($id_pelicula,$_FILES["imagenes"]["tmp_name"][$i]));
+         }
+      }
+    }
+
+  }
   function InsertPelicula(){
     $nombre = $_POST["nombre"];
     $director = $_POST["director"];
     $rate = $_POST["rate"];
     $horarios = $_POST["horarios"];
     $id_cine = $_POST["id_cine"];
-    $rutaTempImagenes = $_FILES['imagenes']['tmp_name'];
+
+   
+
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
-    $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine,$rutaTempImagenes[0]);
+    $this->model->InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine);
   }else{
     header(LOGIN);
   }

@@ -19,9 +19,9 @@ class ImagenModel extends CreateDDBBModel
     , 'root', '');
   }
 
-  function insert($id_recital, $url){
+  function insert($id_pelicula, $url){
     $sentencia = $this->db->prepare("INSERT INTO imagen(id_pelicula, url) VALUES (?,?)");
-    $sentencia->execute(array($id_recital, $url));
+    $sentencia->execute(array($id_pelicula, $url));
   }
   function getByPelicula($id_pelicula){
     $sentencia = $this->db->prepare("SELECT * FROM imagen i, pelicula p WHERE i.id_pelicula=p.id_pelicula and p.id_pelicula=?");
