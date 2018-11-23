@@ -46,7 +46,7 @@
                     {/if} 
                   </tr>
             {/foreach}  
-            {else}
+            {elseif $Peliculas != null}
             {if $Imagenes != null}
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner"> 
