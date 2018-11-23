@@ -31,6 +31,7 @@ class PeliculaView
     $this->Smarty->assign('Peliculas', $Pelicula);
     $this->Smarty->assign('User', $User);
     $this->Smarty->assign('Cant', $Cant);
+    $this->Smarty->assign('Imagenes', null);
     $this->Smarty->display('templates/peliculas.tpl');
   }
   

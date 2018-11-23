@@ -61,6 +61,7 @@
               </div>
                </div>
             {/if} 
+            {if $Cant != null}
             <tr>
                 <td>{$Peliculas['nombre']}</td>
                 <td>{$Peliculas['director']}</td>
@@ -74,6 +75,7 @@
                 {/if}
                 {/if}  
             </tr>
+            {/if} 
             {/if}       
           </tbody>
         </table>
