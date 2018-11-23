@@ -51,6 +51,8 @@ function InsertarPelicula($nombre,$director,$rate,$horarios,$id_cine){
   $sentencia->execute(array($nombre,$director,$rate,$horarios,$id_cine));
 }
 function BorrarPelicula($idPelicula){
+  $senten = $this->db->prepare( "DELETE FROM imagen WHERE id_pelicula=?");
+  $senten ->execute(array($idPelicula));
   $sentencia = $this->db->prepare( "DELETE FROM pelicula WHERE id_pelicula=?");
   $sentencia->execute(array($idPelicula));
 }

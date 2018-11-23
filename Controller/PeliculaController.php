@@ -125,7 +125,7 @@ class PeliculaController extends SecuredController
     }else{
       header(LOGIN);
     }
-    header(CINES); 
+    header(PELICULAS); 
   }
 }
  ?>
