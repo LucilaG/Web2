@@ -12,7 +12,9 @@ function load() {
 
         });
     let enviar = document.querySelector('#enviarComentario');
-    enviar.addEventListener('click', enviarComentario);
+    if(enviar){
+        enviar.addEventListener('click', enviarComentario);
+    }
 }
 
 
@@ -49,7 +51,9 @@ function mostrarComentario(jsonComentario, jsonUsuario) {
         admin: admin,
     }
     let html = templateComentario(context);
-    document.querySelector("#cine-container").innerHTML = html;
+    if(document.querySelector("#cine-container") != null){
+        document.querySelector("#cine-container").innerHTML = html;
+    }
     setTimeout(botonEliminar,1000);
 }
 
