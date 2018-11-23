@@ -6,7 +6,7 @@
     <form method="post" action="mostrarPeliculaCondicion">          
           <div class="form-group">
             <label for="rate">Seleccionar peliculas por puntuación</label>
-            <input type="number" min=0 max=10 id="rate" name="rate"/>
+            <input type="number" min=0 max=9 id="rate" name="rate"/>
              <button type="submit" class="btn btn-primary">Buscar</button> 
           </div>
     </form>
